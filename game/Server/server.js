@@ -1,14 +1,25 @@
+const path = require('path');
 const http = require('http');
 const express = require('express');
+const socketIO = require('socket.io');
 
-// create app-obj from express funcioncall
-const app = express();
-//create server-obj
-const server = http.createServer(app);
-// import socket from socketIO
-const socket = require('socket.io');
-// io instance
-const io = socket(server);
+// Legen den Pfad fest, um HTML über den von uns erstellten öffentlichen Ordner bereitzustellen
+const publicPath = path.join(__dirname, '/../public');
+
+// Legen Port fest
+const port          = process.env.PORT || 3000;
+
+// Express Funk aufrufen 
+let app = express();
+
+// Dann geben wir die http-Methode an, um eine HTTP-Verbindung zuzulassen:
+let server  = http.createServer(app);
+
+// Als letztes die SocketIO connection 
+let io = socketIO(server);
+
+app.use(express.static(publicPath));
+
 
 io.on('connection', socket =>{
     console.log('A user connected');
@@ -17,6 +28,7 @@ io.on('connection', socket =>{
     });
 });
 
-
-// let server listen on port 
-server.listen(1337, () => console.log("server is running on port 1337"));
+// Und dann zum Port connecten
+server.listen(port, ()=> {
+    console.log(`Server is up on port ${port}.`)
+});
