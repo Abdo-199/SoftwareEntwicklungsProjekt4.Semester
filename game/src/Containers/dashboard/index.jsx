@@ -82,7 +82,7 @@ export function Dashboard(){
         </Positioner>
         <Positioner x={1100} y={100} >
         
-        <OutRoomID placeholder="current room id"></OutRoomID>
+        <OutRoomID placeholder="current room id">test</OutRoomID>
         </Positioner>
         </DashContainer>
         </PageContainer>

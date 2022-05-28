@@ -1,34 +1,32 @@
-const path = require('path');
-const http = require('http');
-const express = require('express');
-const socketIO = require('socket.io');
+const express = require("express");
+const app = express();
+const http = require("http");
+const { Server } = require("socket.io");
+const cors = require("cors");
 
-// Legen den Pfad fest, um HTML über den von uns erstellten öffentlichen Ordner bereitzustellen
-const publicPath = path.join(__dirname, '/../public');
+app.use(cors());
 
-// Legen Port fest
-const port = process.env.PORT || 4000;
+const server = http.createServer(app);
 
-// Express Funk aufrufen 
-let app = express();
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+    },
+});
 
-// Dann geben wir die http-Methode an, um eine HTTP-Verbindung zuzulassen:
-let server = http.createServer(app);
+io.on("connection", (socket) => {
+    console.log(`User Connected: ${socket.id}`);
 
-// Als letztes die SocketIO connection 
-let io = socketIO(server);
+    socket.on("join_room", (data) => {
+        socket.join(data);
+    });
 
-app.use(express.static(publicPath));
-
-
-io.on('connection', socket => {
-    console.log('A user connected');
-    socket.on('disconnect', () => {
-        console.log('A user has disconnected.');
+    socket.on("send_message", (data) => {
+        socket.to(data.room).emit("receive_message", data);
     });
 });
 
-// Und dann zum Port connecten
-server.listen(port, () => {
-    console.log(`Server is up on port ${port}.`)
+server.listen(4000, () => {
+    console.log("SERVER IS RUNNING");
 });

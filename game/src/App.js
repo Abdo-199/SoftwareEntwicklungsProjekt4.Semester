@@ -5,6 +5,11 @@ import { CustomerAccessPage } from './Containers/customerAccessPage';
 import { AddFriendPage } from './Containers/addFriendPage';
 import { Dashboard } from './Containers/dashboard';
 import { BuildTeam } from './Containers/buildTeam';
+import React, { useEffect, useRef, useState } from "react"
+import io from "socket.io-client"
+
+const socket = io.connect("http://localhost:4000");
+
 function App() {
   return (
     <div className="App">
