@@ -7,13 +7,13 @@ const socketIO = require('socket.io');
 const publicPath = path.join(__dirname, '/../public');
 
 // Legen Port fest
-const port          = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // Express Funk aufrufen 
 let app = express();
 
 // Dann geben wir die http-Methode an, um eine HTTP-Verbindung zuzulassen:
-let server  = http.createServer(app);
+let server = http.createServer(app);
 
 // Als letztes die SocketIO connection 
 let io = socketIO(server);
@@ -21,7 +21,7 @@ let io = socketIO(server);
 app.use(express.static(publicPath));
 
 
-io.on('connection', socket =>{
+io.on('connection', socket => {
     console.log('A user connected');
     socket.on('disconnect', () => {
         console.log('A user has disconnected.');
@@ -29,6 +29,6 @@ io.on('connection', socket =>{
 });
 
 // Und dann zum Port connecten
-server.listen(port, ()=> {
+server.listen(port, () => {
     console.log(`Server is up on port ${port}.`)
 });
