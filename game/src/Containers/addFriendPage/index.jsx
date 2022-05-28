@@ -4,7 +4,6 @@ import { Input } from "../../Components/accountBox/common";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
-import { Link } from "react-router-dom";
 
 const NewGameButton=styled.button`
 background-color: #3164F4;
@@ -23,22 +22,13 @@ background-color: #0a49f6;
 transform: scale(1.1); 
 }
 `;
-const JoinYourFriendsButton=styled.button`
+const JoinYourFriendsCard=styled.div`
 background-color: #fff;
 color: black;
 font-size: 60px;
 padding: 0px 15px;
 border-radius: 30px;
 font-weight: 800;
-border: none;
-outline: none;
-cursor: pointer;
-transition: all 200ms ease-in-out;
-:hover{
-background-color: #0a49f6;
-color: #fff;
-transform: scale(1.1); 
-}
 `;
 const IdInput=styled.input`
 background-color: #a19898;
@@ -67,15 +57,12 @@ return <PageContainer>
     <Marginer direction="virtical" margin={200}/>
     <AddInnerContainer>
         <JoinYourFriendsContainer>
-        <JoinYourFriendsButton>Join your<br/> friends</JoinYourFriendsButton>
+        <JoinYourFriendsCard>Join your<br/> friends</JoinYourFriendsCard>
         <Marginer direction="virtical" margin={30}/>
         <IdInput type="roomId" placeholder="Room ID" />
         </JoinYourFriendsContainer>
-        <Link to="/dashboard">
-                
-                
         <NewGameButton>New<br/> Game</NewGameButton>
-        </Link>
+        
     </AddInnerContainer>
     <Marginer direction="virtical" margin={250}/>
 </PageContainer>
