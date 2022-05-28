@@ -17,6 +17,13 @@ position: absolute;
   left: 100px;
   top: 630px;
 `;
+const OutRoomID=styled.output`
+background-color: #a19898;
+width: 400;
+height: 40px;
+border-radius: 10px;
+color: #fff;
+`;
 
 export function Dashboard(){
 
@@ -72,6 +79,10 @@ export function Dashboard(){
         </Positioner>
         <Positioner x={1249} y={102} >
         <DashCard radius={200} > Test</DashCard>
+        </Positioner>
+        <Positioner x={1100} y={100} >
+        
+        <OutRoomID placeholder="current room id"></OutRoomID>
         </Positioner>
         </DashContainer>
         </PageContainer>
