@@ -1,13 +1,13 @@
 const express = require("express");
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
-const connectDB = require('./server/database/connection');
+//const connectDB = require('../database/connection');
 
-dotenv.config({ path: 'config.env'});
+//dotenv.config({ path: 'config.env' });
 
 app.use(cors());
 
@@ -23,10 +23,8 @@ const io = new Server(server, {
 });
 
 
-
 //mongodb connection
-connectDB();
-
+//connectDB();
 
 io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
@@ -39,7 +37,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("send_message", (data) => {
-        socket.to(data.room).emit("receive_message", data);
+        socket.broadcast.emit("receive_message", data);
     });
 });
 

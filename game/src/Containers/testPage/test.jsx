@@ -36,7 +36,7 @@ export function TestPage(){
     
     socket.on("parse_room", () =>{
         console.log("jaaa bis hier");
-        });
+    });
     
   
     useEffect(() => {
