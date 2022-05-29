@@ -6,6 +6,8 @@ const cors = require("cors");
 
 app.use(cors());
 
+const room_nr = "";
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -19,7 +21,10 @@ io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
 
     socket.on("join_room", (data) => {
+        console.log(`User want connection: ${data}`);
+        //socket.emit("parse_room", data);
         socket.join(data);
+        socket.emit("parse_room")
     });
 
     socket.on("send_message", (data) => {

@@ -1,10 +1,14 @@
-import React from "react";
+import React,{ useState } from "react";
 import styled from "styled-components";
 import { Input } from "../../Components/accountBox/common";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { Link } from "react-router-dom";
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:4000");
+
 
 const NewGameButton=styled.button`
 background-color: #3164F4;
@@ -61,17 +65,38 @@ align-items: center;
 justify-content: space-evenly;
 `;
 
+export const room_nr = "";
+
 export function AddFriendPage(){
+
+    const getInputValue = (event)=>{
+        // show the user input value to console
+        const room_nr = event.target.value;
+    
+        setRoom(room_nr);
+    
+        console.log(room_nr);
+    };
+
+    const [room, setRoom] = useState("");
+
+    const joinRoom = () => {
+        if (room !== "") {
+        socket.emit("join_room", room);
+        }
+      };
+
 return <PageContainer>
     <Navbar/>
     <Marginer direction="virtical" margin={200}/>
     <AddInnerContainer>
         <JoinYourFriendsContainer>
         <Link to="/test">
-        <JoinYourFriendsButton>Join your<br/> friends</JoinYourFriendsButton>
+        <JoinYourFriendsButton onClick={joinRoom}>Join your<br/> friends</JoinYourFriendsButton>
         </Link>
         <Marginer direction="virtical" margin={30}/>
-        <IdInput type="roomId" placeholder="Room ID" />
+        <IdInput  type="roomId" placeholder="Room ID" 
+        onChange={getInputValue}/>
         </JoinYourFriendsContainer>
         <Link to="/test">
                 
