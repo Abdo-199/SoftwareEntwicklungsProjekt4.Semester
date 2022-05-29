@@ -48,7 +48,8 @@ export function Dashboard(){
         <DashCard radius={130}> Empathize</DashCard>
         </Positioner>
         <Positioner x={352} y={408} >
-        <DashCard radius={120} backgroundC="2AE01F"> Proto<br/> Personas</DashCard>
+        <DashCard  radius={120} backgroundC="2AE01F"> Proto<br/> Personas</DashCard>
+      
         </Positioner>
         <Positioner x={206} y={371} >
         <DashCard radius={120} backgroundC="E0E32A"> Shuffel</DashCard>

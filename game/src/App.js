@@ -7,6 +7,7 @@ import { Dashboard } from './Containers/dashboard';
 import { BuildTeam } from './Containers/buildTeam';
 import React, { useEffect, useRef, useState } from "react"
 import io from "socket.io-client"
+import { TestPage } from './Containers/testPage/test';
 
 const socket = io.connect("http://localhost:4000");
 
@@ -19,6 +20,7 @@ function App() {
         <Route path ="/player/access/:action" element={< CustomerAccessPage/>}/>
         <Route path ="/intergame" element={< AddFriendPage/>}/>
         <Route path ="/dashboard" element={< Dashboard/>}/>
+        <Route path ="/test" element={< TestPage/>}/>
         <Route path ="/dashboard/buildteam" element={< BuildTeam/>}/>
         </Routes>
       </Router>
