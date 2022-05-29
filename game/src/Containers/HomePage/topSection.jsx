@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const TopSectionContainer= styled.div`
 width:100%;
-height:800px;
+height:1000px;
 
 background-color: #E3E4E6;
 `;
@@ -32,17 +32,13 @@ const LogoConatiner=styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-
-
 `;
 const Title=styled.h2`
-
 margin: 0px 0px 0px 60px;
 font-size: 1.2em;
 color: black;
 justify-content: space-evenly;
 line-height:1.7;
-
 `;
 const SloganText =styled.h3`
 margin: 0;

@@ -1,9 +1,14 @@
-# Getting Started with Create React App
+## Project Build front end
+ein npm mit der Version 8.5.0 (version hier ist wichtig) muss auf die Maschiene lahffähig sein
+zu den orner Game navigieren 
+dann der Befehl: npm i
+dann : npm start
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
+der App wird auf den localhost 3000 gestartet
+um den Intergame seite anzusehen
+http://localhost:3000/intergame
+um den dashboard anzusehen
+http://localhost:3000/dashboard
 In the project directory, you can run:
 
 ### `npm start`

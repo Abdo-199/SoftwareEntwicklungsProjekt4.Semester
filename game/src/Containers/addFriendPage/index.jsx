@@ -67,11 +67,13 @@ return <PageContainer>
     <Marginer direction="virtical" margin={200}/>
     <AddInnerContainer>
         <JoinYourFriendsContainer>
+        <Link to="/test">
         <JoinYourFriendsButton>Join your<br/> friends</JoinYourFriendsButton>
+        </Link>
         <Marginer direction="virtical" margin={30}/>
         <IdInput type="roomId" placeholder="Room ID" />
         </JoinYourFriendsContainer>
-        <Link to="/dashboard">
+        <Link to="/test">
                 
                 
         <NewGameButton>New<br/> Game</NewGameButton>
