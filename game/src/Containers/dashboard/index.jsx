@@ -8,7 +8,7 @@ import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 const DashContainer=styled.div`
 width:100%;
-height:800px;
+height:1000px;
 
 background-color: #E3E4E6;
 `;
@@ -79,11 +79,11 @@ export function Dashboard(){
         <DashCard radius={165} backgroundC="E0E32A"> Shuffel</DashCard>
         </Positioner>
         <Positioner x={1249} y={102} >
-        <DashCard radius={200} > Test</DashCard>
+        <DashCard radius={200} > </DashCard>
         </Positioner>
         <Positioner x={1100} y={100} >
         
-        <OutRoomID placeholder="current room id">test</OutRoomID>
+        <OutRoomID placeholder="current room id"></OutRoomID>
         </Positioner>
         </DashContainer>
         </PageContainer>
