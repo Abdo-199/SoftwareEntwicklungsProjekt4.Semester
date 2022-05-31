@@ -41,7 +41,8 @@ io.on("connection", (socket) => {
 
     socket.on("send_message", (data) => {
         console.log(socket.rooms);
-        socket.emit("receive_message", data);
+        socket.in(data.room).emit("receive_message", data);
+        console.log(data.room);
     });
 });
 
