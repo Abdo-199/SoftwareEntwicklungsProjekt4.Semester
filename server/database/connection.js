@@ -1,3 +1,6 @@
+//Connecting with MongoCloud
+//-- mongosh "mongodb+srv://gamedb.nfaem.mongodb.net/myFirstDatabase" --apiVersion 1 --username Emirhan-Admin
+
 const mongoose = require('mongoose');
 
 const connectDB = async() => {

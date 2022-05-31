@@ -6,8 +6,12 @@ import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";
+import {SocketContext, socket} from  "../../sockeInstance";
+//import {socketInstance} from "../../sockeInstance";
 
-const socket = io.connect("http://localhost:4000");
+//const socket = io.connect("http://localhost:4000");
+
+
 
 
 const NewGameButton=styled.button`
@@ -78,11 +82,12 @@ export function AddFriendPage(){
         console.log(room_nr);
     };
 
+
     const [room, setRoom] = useState("");
 
     const joinRoom = () => {
         if (room !== "") {
-        socket.emit("join_room", room);
+            socket.emit("join_room", room);
         }
       };
 
@@ -104,6 +109,6 @@ return <PageContainer>
         <NewGameButton>New<br/> Game</NewGameButton>
         </Link>
     </AddInnerContainer>
-    <Marginer direction="virtical" margin={250}/>
+    <Marginer direction="virtical" margin={500}/>
 </PageContainer>
 }

@@ -6,16 +6,19 @@ import { AddFriendPage } from './Containers/addFriendPage';
 import { Dashboard } from './Containers/dashboard';
 import { BuildTeam } from './Containers/buildTeam';
 import React, { useEffect, useRef, useState } from "react"
-import io from "socket.io-client"
+import io from "socket.io-client";
+import {SocketContext, socket} from  "./sockeInstance";
 import { TestPage } from './Containers/testPage/test';
 
-const socket = io.connect("http://localhost:4000");
+
 
 function App() {
   return (
     <div className="App">
+      
+      <SocketContext.Provider value={socket}>
       <Router>
-        <Routes>
+      <Routes>
         <Route path ="/" element={< HomePage/>}/>
         <Route path ="/player/access/:action" element={< CustomerAccessPage/>}/>
         <Route path ="/intergame" element={< AddFriendPage/>}/>
@@ -24,6 +27,9 @@ function App() {
         <Route path ="/dashboard/buildteam" element={< BuildTeam/>}/>
         </Routes>
       </Router>
+
+      </SocketContext.Provider>
+      
       
     </div>
   );

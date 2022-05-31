@@ -1,10 +1,12 @@
-import React,{ useEffect, useState } from "react";
+import React,{ useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Marginer } from "../../Components/marginer";
 import io from "socket.io-client";
-import {room_nr} from "../addFriendPage/index" 
+import {room_nr} from "../addFriendPage/index"
+import {SocketContext} from  "../../sockeInstance";
+
 const InnerCont=styled.div`
 width: 100%;
 height: 1000px;
@@ -22,28 +24,42 @@ border-radius: 10px;
 
 `;
 
-const socket = io.connect("http://localhost:4000");
+//const socket = io.connect("http://localhost:4000");
 
 export function TestPage(){
 
-    const [room, setRoom] = useState(room_nr);
-    const [messageReceived, setMessageReceived] = useState("ha");
+   const socket = useContext(SocketContext);
 
+   //let room = socket.room;
+    const [room, setRoom] = useState("7");
+    //setRoom(room_nr);
+    const [messageReceived, setMessageReceived] = useState("Room connected");
+
+    // To send the message to the sever -{emit}
     const sendMessage = () => {
-        console.log(room);
-      socket.emit("send_message", { message: "Hallo an alle in meinem Raum", room });
+       //console.log(room);
+      socket.emit("send_message", { message: "Hallo an alle in meinem Raum", room});
     };
     
-    socket.on("parse_room", () =>{
-        console.log("jaaa bis hier");
+    socket.on("roomNo", (data) =>{
+        console.log("Angekommen an Parse Room");
+        setRoom(data);
     });
     
-  
+  // To receive messages from server
     useEffect(() => {
       socket.on("receive_message", (data) => {
+        console.log(data.room);
         setMessageReceived(data.message);
     });
     }, [socket]);
+    
+    const roomOutput = "JAA";
+
+    socket.on("connectToRoom", (data) =>{
+        roomOutput = data;
+    });
+
     
 
 return<PageContainer>

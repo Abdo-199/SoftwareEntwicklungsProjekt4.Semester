@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 const StyledInnerPageContainer= styled(InnerPageContainer)`
 margin-top: 4em;
-margin-bottom: 4em;
+margin-bottom: 6em;
 `;
 
 export function CustomerAccessPage(props){

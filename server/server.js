@@ -11,6 +11,7 @@ const cors = require("cors");
 
 app.use(cors());
 
+
 const room_nr = "";
 
 const server = http.createServer(app);
@@ -30,14 +31,17 @@ io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
 
     socket.on("join_room", (data) => {
-        console.log(`User want connection: ${data}`);
-        //socket.emit("parse_room", data);
         socket.join(data);
-        socket.emit("parse_room")
+        console.log(socket.rooms); // the Set contains at least the socket ID
+        socket.emit("roomNo", data);
     });
+    socket.on("disconnect", (socket) => {
+        console.log(`User disconnected`);
+    })
 
     socket.on("send_message", (data) => {
-        socket.broadcast.emit("receive_message", data);
+        console.log(socket.rooms);
+        socket.emit("receive_message", data);
     });
 });
 
