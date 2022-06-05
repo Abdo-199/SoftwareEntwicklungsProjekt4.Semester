@@ -1,8 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import { Button } from "../button";
 import avatar from "../../images/avatar.png";
 import { Marginer } from "../marginer";
+import {BsFillChatTextFill} from "react-icons/bs";
+import {AiOutlineClose} from "react-icons/ai";
+
+import { Link } from "react-router-dom";
+import Chat from "../Chat/chat";
 
 const NavbarContainer = styled.div`
   width  : 100%;
@@ -25,6 +30,10 @@ font-size: 15px;
 color: black;
 justify-content: space-evenly;
 
+`;
+const IconContainer=styled.div`
+color: #fff;
+font-size: 30px;
 `;
 const AccessibilityContainer=styled.div`
 display: flex;
@@ -50,16 +59,42 @@ const Textstyle=styled.h2`
 color: #fff;
 font-size: 20px;
 `;
+const Sidebar=styled.nav`
 
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+
+
+background-color: #3164F4;
+  width: 400px;
+  height: 100vh;
+  
+  position: fixed;
+  top: 0;
+  left: ${({left})=> left?'0':'-100%'};
+  transition: 850ms;
+  z-index: 1;
+`;
 export function Navbar(props){
   const {useTransparent}=props;
+  const {left}=props;
+  const [isOpen, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!isOpen);
+ 
 return(
+  <>
     <NavbarContainer useTransparent={useTransparent}> 
+    <AccessibilityContainer>
+      <IconContainer>
+    <BsFillChatTextFill onClick={showSidebar}/>
+    </IconContainer>
      <LogoConatiner>
         <Title> THE</Title>
        <Title>INNOVATION</Title>
        <Title>GAME</Title>
        </LogoConatiner>
+       </AccessibilityContainer>
      <AccessibilityContainer>
      <Textstyle>Level:xx</Textstyle>
        <Marginer direction="horizontal" margin= {15} />
@@ -68,9 +103,16 @@ return(
      <AvatarImage>
        <img src={avatar} alt="" />
      </AvatarImage>
-
      </AccessibilityContainer>
-
-    </NavbarContainer>
+     </NavbarContainer>
+    <Sidebar left={isOpen? '{console.console.log(true)}':''}>{props.children}
+    <Marginer direction="vertical" margin= {20} />
+    <IconContainer>
+    <AiOutlineClose onClick={showSidebar} />
+    <Marginer direction="vertical" margin= {40} />
+    </IconContainer>
+    <Chat/>
+    </Sidebar>
+    </>
 );
 }

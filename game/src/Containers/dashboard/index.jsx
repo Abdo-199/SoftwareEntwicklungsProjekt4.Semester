@@ -8,7 +8,7 @@ import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 const DashContainer=styled.div`
 width:100%;
-height:1000px;
+height:100vh;
 
 background-color: #E3E4E6;
 `;
