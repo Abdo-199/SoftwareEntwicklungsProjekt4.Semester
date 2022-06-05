@@ -1,27 +1,34 @@
 //Connecting with MongoCloud
 //-- mongosh "mongodb+srv://gamedb.nfaem.mongodb.net/myFirstDatabase" --apiVersion 1 --username Emirhan-Admin
 
+
+//const connectDB = async() => {
+ //   try {
+//        //mongodb Connection String
+//            useNewUrlParser: true,
+//            useUnifiedTopology: true,
+ //           useFindAndModify: false,
+ //           useCreateIndex: true
+ //       })
+//
+ //       console.log(`MongoDB connected : ${con.connection.host}`);
+ //   } catch (err) {
+ //       console.log(err);
+ //       process.exit(1);
+//    }
+//}
+
 const mongoose = require('mongoose');
+mongoose.connect(`${process.env.MONGO_URI}`);
+const db = mongoose.connection;
 
-const connectDB = async() => {
-    try {
-        //mongodb Connection String
-        const con = await mongoose.connect(process.env.MONOGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
-        })
-
-        console.log(`MongoDB connected : ${con.connection.host}`);
-    } catch (err) {
-        console.log(err);
-        process.exit(1);
-    }
-}
+db.once('open', function(){
+    console.log("Connected to MongoDB successfully!");
+});
+db.on('error', function(){
+    console.log(err);
+});
 
 
 
-
-
-module.export = connectDB;
+//module.export = connectDB;

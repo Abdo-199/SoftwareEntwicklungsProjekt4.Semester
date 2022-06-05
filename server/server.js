@@ -1,13 +1,12 @@
 const express = require("express");
-//const dotenv = require('dotenv');
+require("dotenv").config({ path: 'config.env' })
+
 const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
-//const connectDB = require('../database/connection');
-
-//dotenv.config({ path: 'config.env' });
+const connectDB = require('./database/connection');
 
 app.use(cors());
 
@@ -22,6 +21,8 @@ const io = new Server(server, {
         methods: ["GET", "POST"],
     },
 });
+
+
 
 
 //mongodb connection
