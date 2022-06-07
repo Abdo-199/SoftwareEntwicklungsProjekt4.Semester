@@ -28,7 +28,7 @@ border-radius: 10px;
 
 export function TestPage(){
 
-   const socket = useContext(SocketContext);
+ //  const socket = useContext(SocketContext);
 
    //let room = socket.room;
     const [room, setRoom] = useState("7");
@@ -36,20 +36,22 @@ export function TestPage(){
     const [messageReceived, setMessageReceived] = useState("Room connected");
 
     // To send the message to the sever -{emit}
-    const sendMessage = () => {
-       //console.log(room);
-      socket.emit("send_message", { message: "Hallo an alle in meinem Raum", room});
+   /* const sendMessage = () => {
+       console.log(room);
+     socket.emit("send_message", { message: "Hallo an alle in meinem Raum", room});
     };
     
+    
+    
     socket.on("roomNo", (data) =>{
-        console.log("Angekommen an Parse Room");
+       // console.log("Angekommen an Parse Room");
         setRoom(data);
     });
     
   // To receive messages from server
     useEffect(() => {
       socket.on("receive_message", (data) => {
-        console.log(data.room);
+      //  console.log(data.room);
         setMessageReceived(data.message);
     });
     }, [socket]);
@@ -60,7 +62,7 @@ export function TestPage(){
         roomOutput = data;
     });
 
-    
+    */
 
 return<PageContainer>
     <Navbar/>
@@ -72,7 +74,7 @@ return<PageContainer>
     
     <h1>Message: </h1>{messageReceived}
     <Marginer direction="virtical" margin= {15} />
-    <button onClick={sendMessage}>Press here to show Messege</button>
+    <button>Press here to show Messege</button>
     </InnerCont>
 </PageContainer>
 

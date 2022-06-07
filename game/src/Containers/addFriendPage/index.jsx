@@ -79,7 +79,7 @@ export function AddFriendPage(){
     
         setRoom(room_nr);
     
-        console.log(room_nr);
+       //console.log(room_nr);
     };
 
 

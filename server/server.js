@@ -41,9 +41,10 @@ io.on("connection", (socket) => {
     })
 
     socket.on("send_message", (data) => {
-        console.log(socket.rooms);
-        socket.in(data.room).emit("receive_message", data);
         console.log(data.room);
+        socket.to(data.room).emit("receive_message", data);
+        console.log("Nahricht wurde abgeschickt");
+        console.log("NAchricht war: "+ data.message)
     });
 });
 
