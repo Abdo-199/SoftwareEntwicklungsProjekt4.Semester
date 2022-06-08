@@ -34,7 +34,9 @@ export function Dashboard(){
         <DashCard radius={80}> Get<br/> ready</DashCard>
         </Positioner>
         <Positioner x={208} y={627} >
-        <DashCard radius={80} backgroundC="2AE01F">Build<br/>Team</DashCard>
+        <Link to="/dashboard/frameit">
+        <DashCard radius={80} backgroundC="2AE01F">Frame<br/>it</DashCard>
+        </Link>
         </Positioner>
         <Positioner x={312} y={590} >
         <DashCard radius={90} backgroundC="2AE01F"> Plan<br/> it</DashCard>
