@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import {SocketContext, socket} from "../../sockeInstance";
 function Chat() {
 
-  const socket = useContext(SocketContext);
+  //const socket = useContext(SocketContext);
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -31,26 +31,28 @@ function Chat() {
     };
   //  await socket.emit()
   */
-  const sendMessage = async  () =>{
+  const sendMessage = async () =>{
       setMessage(textString);
      await socket.emit("send_message", { message: message, room:room});
-      console.log("Send_messag is done!");
-    
+     setMessageList((list) => [...list, message]);
 
+      console.log("Send_messag is done!");
   };
+
+  
 
   useEffect(() =>{
     socket.on("receive_message", (data)=>{
-      setMessage(data.message);
+      //setMessage(data.message);
       textString = message;
-      setMessageList((list) => [...list, data.message] )
+      setMessageList((list) => [...list, data.message]);
       //console.log(data.message);
       console.log("Recieve_messag is done!");
-      console.log("message was: " + data.message)
-      console.log("bisher: " +  messageList[0]);
-
+      
+      
     });
-  },[socket]);
+    console.log("message was: ");
+  },[]);
 
 
   socket.on("roomNo", (data) =>{
@@ -65,10 +67,12 @@ return (
           <div className="message">
                 <div>
                   <div className="message-content">
-                    {messageList.map((messageContent) =>{
-                      return <p>{messageContent.message}</p>;
-                    })}
+                    
                   </div>
+                  {messageList.map((messageContent) =>{
+                      return <p>{messageContent}</p>;
+                    })}
+
                 </div>  
             </div>
         </ScrollToBottom>
