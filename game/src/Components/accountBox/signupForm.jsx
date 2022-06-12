@@ -9,20 +9,56 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
+import { useState } from "react";
+
+
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
+  const [fullName,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const [cpassword,setCPassword] = useState("");
+  
+
+   const handleSubmit = (event) => {
+     event.preventDefault();
+
+    let All = {
+      fullname: `${fullName}`,
+      email: `${email}`,
+      password: `${password}`
+    }
+
+
+   //  console.log( "Fullname " + `${fullName}`  + " Email " +  `${email}`);
+   //  console.log(" Password " +  `${password}` + " C-Password " + `${cpassword}`);
+
+    if(password==cpassword){
+    console.log(All)
+    }
+    else{
+      console.log("Passwords failed")
+    };
+    }
+
+    
+      
+ 
+
   return (
     <BoxContainer>
-      <FormContainer>
-        <Input type="text" placeholder="Full Name" />
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Input type="password" placeholder="Confirm Password" />
+      <form onSubmit={handleSubmit}>
+      <FormContainer >
+        <Input type="text" placeholder="Full Name" value={fullName} maxLength="30" onChange={(e) => setName(e.target.value)} />
+        <Input type="email" placeholder="Email" value={email} maxLength="45" onChange={(e) => setEmail(e.target.value)} /> 
+        <Input type="password"  placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <Input type="password" placeholder="Confirm Password" value={cpassword} onChange={(e) => setCPassword(e.target.value)} />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit">Signup</SubmitButton>
+      <SubmitButton type="submit">Signup</SubmitButton>     
+      </form>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?
