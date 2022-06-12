@@ -6,12 +6,12 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
-// const connectDB = require('./database/connection');
+const connectDB = require('./database/connection');
 
 app.use(cors());
 
 
-// const room_nr = "";
+const room_nr = "";
 
 const server = http.createServer(app);
 
@@ -24,9 +24,6 @@ const io = new Server(server, {
 
 
 
-
-//mongodb connection
-//connectDB();
 
 io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);

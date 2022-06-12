@@ -1,20 +1,5 @@
 
-//const connectDB = async() => {
- //   try {
-//        //mongodb Connection String
-//            useNewUrlParser: true,
-//            useUnifiedTopology: true,
- //           useFindAndModify: false,
- //           useCreateIndex: true
- //       })
-//
- //       console.log(`MongoDB connected : ${con.connection.host}`);
- //   } catch (err) {
- //       console.log(err);
- //       process.exit(1);
-//    }
-//}
-
+//DB Connection Test
 const mongoose = require('mongoose');
 mongoose.connect(`${process.env.MONGO_URI}`);
 const db = mongoose.connection;
@@ -27,5 +12,20 @@ db.on('error', function(){
 });
 
 
+//GET DB Documents
+var MongoClient = require('mongodb').MongoClient;
 
-//module.export = connectDB;
+MongoClient.connect(`${process.env.MONGO_URI}`, function(err, client) {
+  if (err) {
+    throw err;
+  }
+  var db = client.db('gamedb')
+  db.collection('Player').find().toArray(function(err, result) {
+    if (err) {
+      throw err;
+    }
+    console.log(result);
+  });
+});
+
+
