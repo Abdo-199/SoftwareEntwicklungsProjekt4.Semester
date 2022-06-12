@@ -32,8 +32,8 @@ export function SignupForm(props) {
     }
 
 
-   //  console.log( "Fullname " + `${fullName}`  + " Email " +  `${email}`);
-   //  console.log(" Password " +  `${password}` + " C-Password " + `${cpassword}`);
+    //  console.log( "Fullname " + `${fullName}`  + " Email " +  `${email}`);
+    //  console.log(" Password " +  `${password}` + " C-Password " + `${cpassword}`);
 
     if(password==cpassword){
     console.log(All)

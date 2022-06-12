@@ -1,5 +1,5 @@
 
-//DB Connection Test
+//DB Connection 
 const mongoose = require('mongoose');
 mongoose.connect(`${process.env.MONGO_URI}`);
 const db = mongoose.connection;
@@ -27,5 +27,4 @@ MongoClient.connect(`${process.env.MONGO_URI}`, function(err, client) {
     console.log(result);
   });
 });
-
 
