@@ -18,10 +18,10 @@ export function SignupForm(props) {
 
   
 
-  const [fullName,setName] = useState("");
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [cpassword,setCPassword] = useState("");
+  let [fullName,setName] = useState("");
+  let [email,setEmail] = useState("");
+  let [password,setPassword] = useState("");
+  let [cpassword,setCPassword] = useState("");
 
 
    const onSubmit = (event) => {
@@ -34,13 +34,14 @@ export function SignupForm(props) {
     }
 
 
-    axios.post('http://localhost:4000/player/access/signup', All)
-    .then(response => console.log(" test: ",response.data))
-
-   
 
     if(password===cpassword){
-    console.log(All)
+      axios.post('http://localhost:4000/player/access/signup', All)
+      .then(response => console.log(" test: ",response.data))
+       setName(fullName = "")
+       setEmail(email = "")
+       setPassword(password = "")
+       setCPassword(cpassword = "")
     }
     else{
       console.log("Passwords failed")
