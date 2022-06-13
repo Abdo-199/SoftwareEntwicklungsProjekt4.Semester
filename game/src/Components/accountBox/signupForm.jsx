@@ -10,6 +10,8 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 import { useState } from "react";
+// import axios from 'axios'
+// import { response } from "express";
 
 
 
@@ -25,17 +27,24 @@ export function SignupForm(props) {
    const handleSubmit = (event) => {
      event.preventDefault();
 
+     
+
     let All = {
       fullname: `${fullName}`,
       email: `${email}`,
       password: `${password}`
     }
 
+    //axios.post('http://localhost:4000/player/acces/signup', All)
+    //.then(response => console.log(response.data))
+    
+    // this.setState({
+    //   fullName:'',
+    //   email:'',
+    //   password:''
+    // })
 
-    //  console.log( "Fullname " + `${fullName}`  + " Email " +  `${email}`);
-    //  console.log(" Password " +  `${password}` + " C-Password " + `${cpassword}`);
-
-    if(password==cpassword){
+    if(password===cpassword){
     console.log(All)
     }
     else{
@@ -44,9 +53,6 @@ export function SignupForm(props) {
     }
 
     
-      
- 
-
   return (
     <BoxContainer>
       <form onSubmit={handleSubmit}>
