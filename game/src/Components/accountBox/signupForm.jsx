@@ -11,8 +11,6 @@ import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 import { useState } from "react";
 import axios from 'axios'
-//import { response } from "express";
-
 
 
 export function SignupForm(props) {
