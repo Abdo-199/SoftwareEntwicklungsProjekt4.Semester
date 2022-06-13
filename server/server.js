@@ -7,8 +7,13 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 const connectDB = require('./database/connection');
+const routesUrls = require('./routes/routes');
+const SignUpModels = require("./models/SignUpModels");
 
+
+app.use(express.json())
 app.use(cors());
+app.use('/player/acces', routesUrls)
 
 
 const room_nr = "";
