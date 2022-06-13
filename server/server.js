@@ -13,7 +13,7 @@ const SignUpModels = require("./models/SignUpModels");
 
 app.use(express.json())
 app.use(cors());
-app.use('/player/acces', routesUrls)
+app.use('/player/access', routesUrls)
 
 
 const room_nr = "";
