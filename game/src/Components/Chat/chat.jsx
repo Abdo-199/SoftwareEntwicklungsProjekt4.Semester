@@ -76,23 +76,11 @@ return (
         <ScrollToBottom className="message-container">
           <div className="message">
                 <div>
-<<<<<<< HEAD
                   <div className="message-content">
                   </div>
                   {messageList.map((messageContent, i) =>{
                       return <p key={i}>{messageContent}</p>;
-=======
-                  
-                    
-                  
-                  {messageList.map((messageContent) =>{
-                      return<div className="message-content">
-                       <p>{messageContent}</p>;
-                       </div>
-
->>>>>>> d1870a0373a23ffc2e00b4ae373a0c5d28d2a334
                     })}
-
                 </div>  
             </div>
         </ScrollToBottom>
