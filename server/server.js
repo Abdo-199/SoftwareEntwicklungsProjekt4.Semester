@@ -70,7 +70,13 @@ MongoClient.connect(`${process.env.MONGO_URI}`, function(err, client) {
   
 
 
+<<<<<<< HEAD
+let idUser = "";
+//mongodb connection
+//connectDB();
+=======
 
+>>>>>>> d1870a0373a23ffc2e00b4ae373a0c5d28d2a334
 
 io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
@@ -86,9 +92,11 @@ io.on("connection", (socket) => {
 
     socket.on("send_message", (data) => {
         console.log(data.room);
-        socket.to(data.room).emit("receive_message", data);
+        idUser = socket.id;
+        socket.broadcast.to(data.room).emit("receive_message", data);
+        socket.emit("giveId", idUser);
         console.log("Nahricht wurde abgeschickt");
-        console.log("NAchricht war: "+ data.message)
+        console.log("Nachricht war: "+ data.message)
     });
 });
 

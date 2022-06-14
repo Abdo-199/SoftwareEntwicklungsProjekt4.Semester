@@ -5,17 +5,19 @@ import io from "socket.io-client";
 import {SocketContext, socket} from "../../sockeInstance";
 function Chat() {
 
-  //const socket = useContext(SocketContext);
+  const socket = useContext(SocketContext);
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
+  const [currentMes, setcurrentMes] = useState("");
   const [messageList, setMessageList] = useState([]);
 
   let textString  = "";
+  let currentMessage = "";
 
   const getInputValue = (event)=>{
     const inputText = event.target.value;
     setMessage(inputText);
-    
+    setcurrentMes(inputText);
   }
 
   /*For more information
@@ -31,34 +33,42 @@ function Chat() {
     };
   //  await socket.emit()
   */
-  const sendMessage = async () =>{
+  const sendMessage =  () =>{
       setMessage(textString);
-     await socket.emit("send_message", { message: message, room:room});
+      socket.volatile.emit("send_message", { message: message, room:room});
+
      setMessageList((list) => [...list, message]);
 
-      console.log("Send_messag is done!");
+      console.log("send_message is done!");
+      setcurrentMes("");
   };
 
-  
 
   useEffect(() =>{
     socket.on("receive_message", (data)=>{
-      //setMessage(data.message);
-      textString = message;
-      setMessageList((list) => [...list, data.message]);
+      if(currentMessage !== data.message)
+      {
+        setMessage(data.message);
+        setMessageList((list) => [...list, data.message]);
+      }
+      currentMessage = data.message
+
       //console.log(data.message);
-      console.log("Recieve_messag is done!");
-      
-      
+      console.log("Recieve_message is done ! " + idUs);
     });
-    console.log("message was: ");
-  },[]);
+    socket.on("giveId", (data) =>{
+      idUs = data;
+    });
+    socket.on("roomNo", (data) =>{
+      //console.log("Angekommen an Parse Room");
+      setRoom(data);
+  });
+  },[socket]);
+
+  let idUs = "";
 
 
-  socket.on("roomNo", (data) =>{
-    //console.log("Angekommen an Parse Room");
-    setRoom(data);
-});
+  
 
 return (
     <div className="chat-window">
@@ -66,11 +76,21 @@ return (
         <ScrollToBottom className="message-container">
           <div className="message">
                 <div>
+<<<<<<< HEAD
                   <div className="message-content">
-                    
                   </div>
+                  {messageList.map((messageContent, i) =>{
+                      return <p key={i}>{messageContent}</p>;
+=======
+                  
+                    
+                  
                   {messageList.map((messageContent) =>{
-                      return <p>{messageContent}</p>;
+                      return<div className="message-content">
+                       <p>{messageContent}</p>;
+                       </div>
+
+>>>>>>> d1870a0373a23ffc2e00b4ae373a0c5d28d2a334
                     })}
 
                 </div>  
@@ -78,7 +98,7 @@ return (
         </ScrollToBottom>
       </div>
       <div className="chat-footer">
-        <input onChange={getInputValue} type="text" placeholder="Hey..."/>
+        <input value={currentMes} onChange={getInputValue} type="text" placeholder="Hey..."/>
         <button onClick={sendMessage} >&#9658;</button>
         
       </div>
