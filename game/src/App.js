@@ -10,6 +10,9 @@ import {SocketContext, socket} from  "./sockeInstance";
 import { TestPage } from './Containers/testPage/test';
 import { BuildTeam } from './Containers/challenges/buildteam';
 import { FrameIt } from './Containers/challenges/frameIt';
+import { PlanIt } from './Containers/challenges/planit';
+import { Immersion } from './Containers/challenges/immersion';
+import { HowMeightWe } from './Containers/challenges/howMightWe';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route path ="/test" element={< TestPage/>}/>
         <Route path ="/dashboard/buildteam" element={< BuildTeam/>}/>
         <Route path ="/dashboard/frameit" element={< FrameIt/>}/>
+        <Route path ="/dashboard/planit" element={< PlanIt/>}/>
+        <Route path ="/dashboard/immersion" element={< Immersion/>}/>
+        <Route path ="/dashboard/howmeightwe" element={< HowMeightWe/>}/>
         </Routes>
       </Router>
 

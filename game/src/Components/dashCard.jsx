@@ -26,5 +26,6 @@ transform: scale(1.1);
 export function DashCard(props){
     const {backgroundC}=props;
     const {radius}=props;
-    return (<Card radius={radius} backgroundC={backgroundC}> {props.children}</Card>);
+    const {onclick}=props;
+    return (<Card onClick={onclick} radius={radius} backgroundC={backgroundC}> {props.children}</Card>);
 }
