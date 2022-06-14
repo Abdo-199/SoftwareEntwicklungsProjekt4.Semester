@@ -24,7 +24,7 @@ const io = new Server(server, {
 
 
 
-
+let idUser = "";
 //mongodb connection
 //connectDB();
 
@@ -42,9 +42,11 @@ io.on("connection", (socket) => {
 
     socket.on("send_message", (data) => {
         console.log(data.room);
-        socket.to(data.room).emit("receive_message", data);
+        idUser = socket.id;
+        socket.broadcast.to(data.room).emit("receive_message", data);
+        socket.emit("giveId", idUser);
         console.log("Nahricht wurde abgeschickt");
-        console.log("NAchricht war: "+ data.message)
+        console.log("Nachricht war: "+ data.message)
     });
 });
 
