@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DashCard } from "../../Components/dashCard";
@@ -6,6 +7,7 @@ import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
+import { Shuffle } from "../../Components/shuffle";
 const DashContainer=styled.div`
 width:100%;
 height:100vh;
@@ -27,6 +29,10 @@ color: #fff;
 
 export function Dashboard(){
 
+  const[showShuffle, setShowShuffle]=useState(false);
+  const openShuffle=()=>{
+    setShowShuffle(prev=>!prev)
+  };
     return <PageContainer>
         <Navbar/>
         <DashContainer>
@@ -72,16 +78,21 @@ export function Dashboard(){
         <DashCard radius={160} > Ideate</DashCard>
         </Positioner>
         <Positioner x={848} y={371} >
-        <DashCard radius={165} backgroundC="E0E32A"> Shuffel</DashCard>
+        <DashCard radius={165} backgroundC="E0E32A" > Shuffel</DashCard>
         </Positioner>
         <Positioner x={1034} y={447} >
         <DashCard radius={180} backgroundC="2AE01F"> Prototype</DashCard>
         </Positioner>
         <Positioner x={1199} y={319} >
-        <DashCard radius={165} backgroundC="E0E32A"> Shuffel</DashCard>
+        <DashCard onclick={openShuffle} radius={165} backgroundC="E0E32A"> Shuffel.</DashCard>
         </Positioner>
+        <Positioner x={600} y={300} >
+        <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
+
+        </Positioner>
+
         <Positioner x={1249} y={102} >
-        <DashCard radius={200} > </DashCard>
+        <DashCard radius={200} >Test</DashCard>
         </Positioner>
         <Positioner x={1100} y={100} >
         
