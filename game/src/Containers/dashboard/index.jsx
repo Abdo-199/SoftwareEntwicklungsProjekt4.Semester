@@ -11,13 +11,7 @@ import { Shuffle } from "../../Components/shuffle";
 const DashContainer=styled.div`
 width:100%;
 height:100vh;
-
 background-color: #E3E4E6;
-`;
-const Place=styled.div`
-position: absolute;
-  left: 100px;
-  top: 630px;
 `;
 const OutRoomID=styled.output`
 background-color: #a19898;
@@ -26,9 +20,7 @@ height: 40px;
 border-radius: 10px;
 color: #fff;
 `;
-
 export function Dashboard(){
-
   const[showShuffle, setShowShuffle]=useState(false);
   const openShuffle=()=>{
     setShowShuffle(prev=>!prev)
@@ -48,7 +40,7 @@ export function Dashboard(){
         <DashCard radius={90} backgroundC="2AE01F"> Plan<br/> it</DashCard>
         </Positioner>
         <Positioner x={417} y={550} >
-          <Link to="/dashboard/buildteam">
+        <Link to="/dashboard/buildteam">
         <DashCard radius={90} backgroundC="2AE01F"> Team<br/> up</DashCard>
         </Link>
         </Positioner>
@@ -57,7 +49,6 @@ export function Dashboard(){
         </Positioner>
         <Positioner x={352} y={408} >
         <DashCard  radius={120} backgroundC="2AE01F"> Proto<br/> Personas</DashCard>
-      
         </Positioner>
         <Positioner x={206} y={371} >
         <DashCard radius={120} backgroundC="E0E32A"> Shuffel</DashCard>
@@ -87,7 +78,7 @@ export function Dashboard(){
         <DashCard onclick={openShuffle} radius={165} backgroundC="E0E32A"> Shuffel.</DashCard>
         </Positioner>
         <Positioner x={600} y={300} >
-        <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
+         <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
 
         </Positioner>
 

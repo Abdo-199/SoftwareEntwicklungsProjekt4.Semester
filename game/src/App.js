@@ -13,6 +13,11 @@ import { FrameIt } from './Containers/challenges/frameIt';
 import { PlanIt } from './Containers/challenges/planit';
 import { Immersion } from './Containers/challenges/immersion';
 import { HowMeightWe } from './Containers/challenges/howMightWe';
+import { Collage } from './Containers/challenges/collage';
+import { Interview } from './Containers/challenges/interview';
+import { PeersObservingPeers } from './Containers/challenges/peersObservingPeers';
+import { Cardsort } from './Containers/challenges/cardSort';
+import { AnalogousInspiration } from './Containers/challenges/analogousInspiration';
 
 function App() {
   return (
@@ -31,6 +36,18 @@ function App() {
         <Route path ="/dashboard/planit" element={< PlanIt/>}/>
         <Route path ="/dashboard/immersion" element={< Immersion/>}/>
         <Route path ="/dashboard/howmeightwe" element={< HowMeightWe/>}/>
+        <Route path ="/dashboard/collage" element={< Collage/>}/>
+        <Route path ="/dashboard/interview" element={< Interview/>}/>
+        <Route path ="/dashboard/peerobservingbeers" element={< PeersObservingPeers/>}/>
+        <Route path ="/dashboard/cardsort" element={< Cardsort/>}/>
+        <Route path ="/dashboard/collage" element={< Collage/>}/>
+        <Route path ="/dashboard/analogousinspiration" element={< AnalogousInspiration/>}/>
+
+
+
+
+
+
         </Routes>
       </Router>
 
