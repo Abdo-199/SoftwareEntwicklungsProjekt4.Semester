@@ -86,7 +86,7 @@ io.on("connection", (socket) => {
         socket.broadcast.to(data.room).emit("receive_message", data);
         socket.emit("giveId", idUser);
         console.log("Nahricht wurde abgeschickt");
-        console.log("Nachricht war: "+ data.message)
+        console.log("Nachricht war: "+ data.text)
     });
 });
 

@@ -20,38 +20,40 @@ function Chat() {
     setcurrentMes(inputText);
   }
 
-  /*For more information
-  const messageData = {
+  //For more information
+  
+   // await socket.emit()
+  
+  const sendMessage = async () =>{
+    
+    const messageData = {
       room: room,
-     //author: username,
-      message: message,
+      user: idUs,
+      text: message,
       time: 
       new Date(Date.now()).getHours() + 
       ":" +
       new Date(Date.now()).getMinutes(),
       
     };
-  //  await socket.emit()
-  */
-  const sendMessage =  () =>{
-      setMessage(textString);
-      socket.volatile.emit("send_message", { message: message, room:room});
+    
+    setMessage(textString);
+    await socket.volatile.emit("send_message", messageData);
+    setMessageList((list) => [...list, messageData]);
+    console.log("Mess " + messageData.text)
 
-     setMessageList((list) => [...list, message]);
-
-      console.log("send_message is done!");
-      setcurrentMes("");
+    setcurrentMes("");
   };
 
 
   useEffect(() =>{
     socket.on("receive_message", (data)=>{
-      if(currentMessage !== data.message)
+      if(currentMessage !== data.text)
       {
-        setMessage(data.message);
-        setMessageList((list) => [...list, data.message]);
+        //setMessage(data.message);
+        setMessageList((list) => [...list, data]);
       }
-      currentMessage = data.message
+      currentMessage = data.text
 
       //console.log(data.message);
       console.log("Recieve_message is done ! " + idUs);
@@ -77,9 +79,11 @@ return (
           <div className="message">
                 <div>
                   <div className="message-content">
+                 
                   </div>
                   {messageList.map((messageContent, i) =>{
-                      return <p key={i}>{messageContent}</p>;
+                      return <p key={i}>{messageContent.text}</p>;
+                      <p>{message}</p>
                     })}
                 </div>  
             </div>
