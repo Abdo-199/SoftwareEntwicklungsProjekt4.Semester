@@ -3,13 +3,15 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import "./chatStyles.css";
 import io from "socket.io-client";
 import {SocketContext, socket} from "../../sockeInstance";
-function Chat() {
+function Chat(props) {
 
   const socket = useContext(SocketContext);
   const [message, setMessage] = useState("");
   const [room, setRoom] = useState("");
   const [currentMes, setcurrentMes] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const {username}=props;
+  
 
   let textString  = "";
   let currentMessage = "";
@@ -28,7 +30,7 @@ function Chat() {
     
     const messageData = {
       room: room,
-      user: idUs,
+      user: username,
       text: message,
       time: 
       new Date(Date.now()).getHours() + 
@@ -76,25 +78,32 @@ return (
     <div className="chat-window">
       <div className="chat-body">
         <ScrollToBottom className="message-container">
-          <div className="message">
-                <div>
-                  <div className="message-content">
-                 
+        {messageList.map((messageContent, i) =>{
+                      return (
+                        <div className="message" id={username === messageContent.user ? "you" : "other"}>
+                            <div className="message-content">
+                              <p key={i}>{messageContent.text}</p>
+                            </div>
+                            <div className="message-meta">
+                    <p id="time">{messageContent.time}</p>
+                    <p id="author">{messageContent.user}</p>
                   </div>
-                  {messageList.map((messageContent, i) =>{
-                      return <p key={i}>{messageContent.text}</p>;
-                      <p>{message}</p>
+                        </div>
+                      );
+                     
                     })}
-                </div>  
-            </div>
+               
         </ScrollToBottom>
       </div>
       <div className="chat-footer">
-        <input value={currentMes} onChange={getInputValue} type="text" placeholder="Hey..."/>
+        <input value={currentMes} onChange={getInputValue} type="text" placeholder="Hey.."  onKeyPress={(event) => {
+            event.key === "Enter" && sendMessage();
+          }}/>
         <button onClick={sendMessage} >&#9658;</button>
         
       </div>
-      <p>{message}</p>
+      
+     
 
     </div>
   );

@@ -78,9 +78,11 @@ background-color: #3164F4;
 `;
 export function Navbar(props){
   const {useTransparent}=props;
+  const {username}=props;
   const {left}=props;
   const [isOpen, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!isOpen);
+  
  
 return(
   <>
@@ -111,7 +113,7 @@ return(
     <AiOutlineClose onClick={showSidebar} />
     <Marginer direction="vertical" margin= {40} />
     </IconContainer>
-    <Chat/>
+    <Chat username={username}/>
     </Sidebar>
     </>
 );
