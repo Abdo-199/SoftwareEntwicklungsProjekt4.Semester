@@ -18,6 +18,7 @@ import { Interview } from './Containers/challenges/interview';
 import { PeersObservingPeers } from './Containers/challenges/peersObservingPeers';
 import { Cardsort } from './Containers/challenges/cardSort';
 import { AnalogousInspiration } from './Containers/challenges/analogousInspiration';
+import { ProtoPersonas } from './Containers/challenges/protoPersonas';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path ="/dashboard/cardsort" element={< Cardsort/>}/>
         <Route path ="/dashboard/collage" element={< Collage/>}/>
         <Route path ="/dashboard/analogousinspiration" element={< AnalogousInspiration/>}/>
+        <Route path ="/dashboard/protopersonas" element={<ProtoPersonas/>}/>
 
 
 

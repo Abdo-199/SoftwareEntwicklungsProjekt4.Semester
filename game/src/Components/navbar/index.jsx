@@ -83,9 +83,13 @@ export function Navbar({username,isLoggedIn,useTransparent}){
  // const isLoggedIn=props;
   const [isOpen, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!isOpen);
+  const[showAccount, setShowAccount]=useState(false);
  //const[loggedIn, setLoggedIn]=useState(false);
  // setLoggedIn(isLoggedIn)
   console.log(isLoggedIn);
+  const openAccount=()=>{
+    setShowAccount(prev=>!prev)
+  }
  
 return(
   <>
@@ -104,12 +108,9 @@ return(
        </AccessibilityContainer>
        {isLoggedIn?(
      <AccessibilityContainer>
-      
-     <Textstyle>Level:xx</Textstyle>
-       <Marginer direction="horizontal" margin= {15} />
-       <Textstyle>Score:xx</Textstyle>
-       <Marginer direction="horizontal" margin= {15} />
-     <AvatarImage>
+      <button  >log Out</button>
+       <Marginer direction="horizontal" margin= {30} />
+     <AvatarImage onClick={openAccount}>
        <img src={avatar} alt="" />
      </AvatarImage>
      </AccessibilityContainer>

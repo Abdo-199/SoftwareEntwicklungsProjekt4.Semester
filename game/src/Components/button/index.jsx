@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ButtonWrapper=styled.button`
 border: none;
 outline: none;
-color: #fff;
+color:${({color})=> color? color:"#FFF"} ;;
 padding: 6px 1.5em;
 font-size: ${({size})=> size?size+"px": "18px"};
 font-weight: 600;
@@ -24,6 +24,6 @@ export function Button(props){
 
     const {size}=props;
     const {backGround}=props;
-
-    return <ButtonWrapper size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
+    const {color}=props;
+    return <ButtonWrapper color={color} size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
 }
