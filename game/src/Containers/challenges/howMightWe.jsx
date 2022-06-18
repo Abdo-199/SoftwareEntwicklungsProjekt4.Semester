@@ -6,6 +6,7 @@ import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { useState } from "react";
 const QandA=styled.div`
 display: flex;
 flex-direction: column;
@@ -39,8 +40,9 @@ font-size: 30px;
 `;
 
 export function HowMeightWe(){
+    const [isLoggedIn,setIsLoggedIn]=useState(true); 
     return <PageContainer>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn}/>
         <QandA>
         <h2>Translate your insight statements into opportunities for design by reframing them as <br/> “How Might We” questions. </h2>
         </QandA>

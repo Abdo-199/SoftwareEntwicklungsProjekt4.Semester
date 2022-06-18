@@ -22,11 +22,12 @@ color: #fff;
 `;
 export function Dashboard(){
   const[showShuffle, setShowShuffle]=useState(false);
+  const [isLoggedIn,setIsLoggedIn]=useState(true); 
   const openShuffle=()=>{
     setShowShuffle(prev=>!prev)
   };
     return <PageContainer>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn}/>
         <DashContainer>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>

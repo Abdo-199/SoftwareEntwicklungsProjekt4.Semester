@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { AnswerBox } from "../../Components/answerBox";
 import { Marginer } from "../../Components/marginer";
@@ -16,8 +17,9 @@ font-weight: 900;
 `;
 
 export function BuildTeam(){
+    const [isLoggedIn,setIsLoggedIn]=useState(true); 
     return <PageContainer>
-        <Navbar/>
+        <Navbar   isLoggedIn={isLoggedIn}/>
         <Marginer direction="vertical" margin={50}/>
        <StepBox stepNum="step 1" stepTitel="Who can help you"/>
        <QandA>

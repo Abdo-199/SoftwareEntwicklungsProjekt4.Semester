@@ -36,6 +36,7 @@ export function TestPage(){
     const [messageReceived, setMessageReceived] = useState("Room connected");
     const [username, setUsername] = useState("");
     const [usernameC, setUsernameC] = useState("");
+    const [isLoggedIn,setIsLoggedIn]=useState(true); 
    
     // To send the message to the sever -{emit}
    /* const sendMessage = () => {
@@ -67,7 +68,7 @@ export function TestPage(){
     */
 
 return<PageContainer>
-    <Navbar username={username}/>
+    <Navbar username={username} isLoggedIn={isLoggedIn}/>
     
     <InnerCont>
     <Marginer direction="virtical" margin= {15} />

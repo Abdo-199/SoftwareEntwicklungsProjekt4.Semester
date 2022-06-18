@@ -6,6 +6,7 @@ import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { useState } from "react";
 const QandA=styled.div`
 display: flex;
 flex-direction: column;
@@ -39,8 +40,9 @@ font-size: 30px;
 `;
 
 export function Immersion(){
+    const [isLoggedIn,setIsLoggedIn]=useState(true); 
     return <PageContainer>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn}/>
         <QandA>
         <h2>There’s no better way to understand the people you’re designing for<br/> than by immersing yourself in their lives and communities.</h2>
         </QandA>

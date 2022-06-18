@@ -6,6 +6,7 @@ import { Navbar } from "../../Components/navbar";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { useState } from "react";
 const QandA=styled.div`
 display: flex;
 flex-direction: column;
@@ -33,8 +34,9 @@ font-size: 30px;
 `;
 
 export function FrameIt(){
+    const [isLoggedIn,setIsLoggedIn]=useState(true); 
     return <PageContainer>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn}/>
         <Marginer direction="vertical" margin={50}/>
        <StepBox stepNum="step 1" stepTitel="Answer these questions"/>
        <QandA>

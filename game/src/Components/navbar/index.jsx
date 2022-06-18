@@ -76,28 +76,35 @@ background-color: #3164F4;
   transition: 850ms;
   z-index: 1;
 `;
-export function Navbar(props){
-  const {useTransparent}=props;
-  const {username}=props;
-  const {left}=props;
+export function Navbar({username,isLoggedIn,useTransparent}){
+  // const {useTransparent}=props;
+  // const {username}=props;
+  // const {left}=props;
+ // const isLoggedIn=props;
   const [isOpen, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!isOpen);
-  
+ //const[loggedIn, setLoggedIn]=useState(false);
+ // setLoggedIn(isLoggedIn)
+  console.log(isLoggedIn);
  
 return(
   <>
     <NavbarContainer useTransparent={useTransparent}> 
     <AccessibilityContainer>
-      <IconContainer>
-    <BsFillChatTextFill onClick={showSidebar}/>
-    </IconContainer>
+      {isLoggedIn?(
+        <IconContainer>
+        <BsFillChatTextFill onClick={showSidebar}/>
+        </IconContainer>
+      ):null}
      <LogoConatiner>
         <Title> THE</Title>
        <Title>INNOVATION</Title>
        <Title>GAME</Title>
        </LogoConatiner>
        </AccessibilityContainer>
+       {isLoggedIn?(
      <AccessibilityContainer>
+      
      <Textstyle>Level:xx</Textstyle>
        <Marginer direction="horizontal" margin= {15} />
        <Textstyle>Score:xx</Textstyle>
@@ -106,8 +113,9 @@ return(
        <img src={avatar} alt="" />
      </AvatarImage>
      </AccessibilityContainer>
+     ):null}
      </NavbarContainer>
-    <Sidebar left={isOpen? '{console.console.log(true)}':''}>{props.children}
+    <Sidebar left={isOpen? '{console.console.log(true)}':''}>
     <Marginer direction="vertical" margin= {20} />
     <IconContainer>
     <AiOutlineClose onClick={showSidebar} />

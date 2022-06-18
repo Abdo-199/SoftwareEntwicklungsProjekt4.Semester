@@ -11,6 +11,7 @@ function Chat(props) {
   const [currentMes, setcurrentMes] = useState("");
   const [messageList, setMessageList] = useState([]);
   const {username}=props;
+  console.log(username)
   
 
   let textString  = "";

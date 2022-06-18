@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { Navbar } from "../../Components/navbar";
 import { AccountBox } from "../../Components/accountBox";
@@ -13,10 +13,10 @@ margin-bottom: 6em;
 
 export function CustomerAccessPage(props){
    const {action}= useParams()
-    
+   const [isLoggedIn,setIsLoggedIn]=useState(false); 
 
     return <PageContainer>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn}/>
         
         <StyledInnerPageContainer>
         <AccountBox initialActive={action} />
