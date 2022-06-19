@@ -1,11 +1,9 @@
-import React,{ useEffect, useState, useContext } from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Marginer } from "../../Components/marginer";
-import io from "socket.io-client";
-import {room_nr} from "../addFriendPage/index"
-import {SocketContext} from  "../../sockeInstance";
+
 
 const InnerCont=styled.div`
 width: 100%;
@@ -15,14 +13,7 @@ flex-direction: column;
 align-items: center;
 //justify-content: center;
 `;
-const InputFeld=styled.input`
-height: 96px;
-width: 1193px;
-background-color: #fff;
-color: black;
-border-radius: 10px;
 
-`;
 
 //const socket = io.connect("http://localhost:4000");
 
@@ -30,12 +21,11 @@ export function TestPage(){
 
  //  const socket = useContext(SocketContext);
 
-   //let room = socket.room;
+   //let room = socket.room:
     const [room, setRoom] = useState("7");
     //setRoom(room_nr);
     const [messageReceived, setMessageReceived] = useState("Room connected");
-    const [username, setUsername] = useState("");
-    const [isLoggedIn,setIsLoggedIn]=useState(true); 
+    const [isLoggedIn]=useState(true); 
    
     // To send the message to the sever -{emit}
    /* const sendMessage = () => {
@@ -67,7 +57,7 @@ export function TestPage(){
     */
 
 return<PageContainer>
-    <Navbar username={username} isLoggedIn={isLoggedIn}/>
+    <Navbar isLoggedIn={isLoggedIn}/>
     <InnerCont>
     <Marginer direction="virtical" margin= {15} />
     <h2>Room-Nr.</h2>{room}

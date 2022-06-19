@@ -4,8 +4,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CustomerAccessPage } from './Containers/customerAccessPage';
 import { AddFriendPage } from './Containers/addFriendPage';
 import { Dashboard } from './Containers/dashboard';
-import React, { useEffect, useRef, useState } from "react"
-import io from "socket.io-client";
+import {React} from "react"
 import {SocketContext, socket} from  "./sockeInstance";
 import { TestPage } from './Containers/testPage/test';
 import { BuildTeam } from './Containers/challenges/buildteam';
@@ -19,6 +18,8 @@ import { PeersObservingPeers } from './Containers/challenges/peersObservingPeers
 import { Cardsort } from './Containers/challenges/cardSort';
 import { AnalogousInspiration } from './Containers/challenges/analogousInspiration';
 import { ProtoPersonas } from './Containers/challenges/protoPersonas';
+import { UpdatePersonas } from './Containers/challenges/updatePersonas';
+import { ExtremePersonas } from './Containers/challenges/extremePersonas';
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
         <Route path ="/dashboard/collage" element={< Collage/>}/>
         <Route path ="/dashboard/analogousinspiration" element={< AnalogousInspiration/>}/>
         <Route path ="/dashboard/protopersonas" element={<ProtoPersonas/>}/>
+        <Route path ="/dashboard/updatepersonas" element={<UpdatePersonas/>}/>
+        <Route path ="/dashboard/extremepersonas" element={<ExtremePersonas/>}/>
 
 
 

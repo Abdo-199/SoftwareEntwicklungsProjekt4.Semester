@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DashCard } from "../../Components/dashCard";
-import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
@@ -28,7 +27,7 @@ justify-content: center;
 `;
 export function Dashboard(){
   const[showShuffle, setShowShuffle]=useState(false);
-  const [isLoggedIn,setIsLoggedIn]=useState(true); 
+  const [isLoggedIn]=useState(true); 
   const openShuffle=()=>{
     setShowShuffle(prev=>!prev)
   };
@@ -87,18 +86,14 @@ export function Dashboard(){
         </Positioner>
         <Positioner x={600} y={300} >
          <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
-
         </Positioner>
-
         <Positioner x={1249} y={102} >
         <DashCard radius={200} >Test</DashCard>
         </Positioner>
         <Positioner x={1100} y={100} >
-        
         <OutRoomID placeholder="current room id"></OutRoomID>
         </Positioner>
         </DashContainer>
         </DashParent>
-
         </PageContainer>
 }

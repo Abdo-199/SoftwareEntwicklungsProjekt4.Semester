@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState} from 'react';
 import "./personasStyles.css"
 
 function PersonaForm(props) {
   const [inputName, setInputName] = useState(props.edit ? props.edit.value : '');
   const [inputGender, setInputGender] = useState(props.edit ? props.edit.value : '');
   const [inputBio, setInputBio] = useState(props.edit ? props.edit.value : '');
-  //const inputRef = useRef(null);
-
-  // useEffect(() => {
-  //   inputRef.current.focus();
-  // });
-
+  
   const handleChangeName = e => {
     setInputName(e.target.value);
   };

@@ -3,9 +3,8 @@ import styled from "styled-components";
 import { AnswerBox } from "../../Components/answerBox";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
-import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
+import {  PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useState } from "react";
 const QandA=styled.div`
 display: flex;
@@ -24,23 +23,9 @@ color: black;
 justify-content: space-evenly;
 
 `;
-const CheckQ=styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-font-size: 20px;
-`;
-const Member=styled.h2`
-font-weight: 900;
-`;
-const CheckBox=styled.div`
-
-font-size: 30px;
-`;
 
 export function HowMeightWe(){
-    const [isLoggedIn,setIsLoggedIn]=useState(true); 
+    const [isLoggedIn]=useState(true); 
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
         <QandA>

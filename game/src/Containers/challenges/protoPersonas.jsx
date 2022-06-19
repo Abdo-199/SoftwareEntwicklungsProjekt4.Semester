@@ -3,9 +3,8 @@ import styled from "styled-components";
 import { AnswerBox } from "../../Components/answerBox";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
-import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
+import { PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useState } from "react";
 import PersonaList from "../../Components/personas/personaslist";
 const QandA=styled.div`
@@ -26,28 +25,34 @@ color: black;
 justify-content: space-evenly;
 
 `;
-const CheckQ=styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-font-size: 20px;
-`;
-const Member=styled.h2`
-font-weight: 900;
-`;
-const CheckBox=styled.div`
 
-font-size: 30px;
-`;
+
 
 export function ProtoPersonas(){
-    const [isLoggedIn,setIsLoggedIn]=useState(true); 
+    const [isLoggedIn]=useState(true); 
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
         <Marginer direction="vertical" margin={50}/>
         <StepContainer>
-       <StepBox stepNum="step 1" stepTitel="Start with a calender"/>
+       <StepBox stepNum="step 1" stepTitel="Determine who you want to talk to"/>
+       <Marginer direction="vertical" margin={20}/>
+       <QandA>
+        <Title>Think about these factors: age, gender, ethnicity, class, social position</Title>
+        <Title> and describe your audience </Title>
+        <AnswerBox/>
+       </QandA>
+       <Marginer direction="vertical" margin={20}/>
+       <QandA>
+           <Title>With your team, write down the people or groups that are directlyinvolved </Title>
+        <Title>in or reached by your project </Title>
+       <AnswerBox/>
+       </QandA>
+       <Marginer direction="vertical" margin={20}/>
+       <QandA>
+           <Title>Think about the connections these people have with your topic. </Title>
+        <Title>Who are the fans? Who are the skeptics? Who do you most need onyour side? </Title>
+       <AnswerBox/>
+       </QandA>
        
        </StepContainer>
        <Marginer direction="vertical" margin={50}/>

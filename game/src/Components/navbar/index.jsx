@@ -1,12 +1,9 @@
 import React,{useState} from "react";
 import styled from "styled-components";
-import { Button } from "../button";
 import avatar from "../../images/avatar.png";
 import { Marginer } from "../marginer";
 import {BsFillChatTextFill} from "react-icons/bs";
 import {AiOutlineClose} from "react-icons/ai";
-
-import { Link } from "react-router-dom";
 import Chat from "../Chat/chat";
 
 const NavbarContainer = styled.div`
@@ -85,16 +82,10 @@ display:flex;
 flex-direction: column;
 `;
 export function Navbar({isLoggedIn,useTransparent}){
-  // const {useTransparent}=props;
-  // const {username}=props;
-  // const {left}=props;
- // const isLoggedIn=props;
   const [isOpen, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!isOpen);
   const[showAccount, setShowAccount]=useState(false);
   const [username, setUsername] = useState("");
- //const[loggedIn, setLoggedIn]=useState(false);
- // setLoggedIn(isLoggedIn)
   console.log(isLoggedIn);
   const openAccount=()=>{
     setShowAccount(prev=>!prev)

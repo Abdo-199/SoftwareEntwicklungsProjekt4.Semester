@@ -43,7 +43,6 @@ function PersonaList() {
 
   return (
     <>
-      <h1>What's the Plan for Today?</h1>
       <PersonaForm onSubmit={addPersona} />
       <Persona
         personas={personas}

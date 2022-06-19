@@ -5,11 +5,6 @@ import { Flipper, Flipped } from "react-flip-toolkit";
 import shuffle from "lodash.shuffle";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactDOM } from 'react';
-
-const toShuffle=[
-    'immersion','analogousinspiration','cardsort','peerobservingbeers','interview','collage'
-];
 
 const Close=styled(AiOutlineClose)`
 color: #000;
@@ -59,20 +54,10 @@ const ListI=styled.li`
   padding: 3px;
 `;
 export const Shuffle=({showShuffle,setShowShuffle})=>{
-    // const[challenges,setChallenges]=useState([]);
-    // const[turns,setTurns]=useState(0);
-    // const shufflleChallenges=()=>{
-    //     const shuffledChallenges=[...toShuffle]
-    //     .sort(()=> Math.random()- 0.5)
-    //     .map((challenge)=>({...challenge, id: Math.random()}))
-    //     setChallenges(shuffledChallenges);
-    //     //
-    //     setTurns(0);
-    // }
-    // console.log(challenges.at(2),turns);
+    
     const [data, setData] = useState(['collage', 'interview', 'peerobservingbeers', 'cardsort', 'analogousinspiration', 'immersion']);
     console.log(data.at(2))
-  const shuffleList = () => setData(shuffle(data));
+    const shuffleList = () => setData(shuffle(data));
     return(<>
     {showShuffle? (
         

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Positioner } from "./positioner";
 
 const BoxContainer=styled.div`
 width: 1050px;

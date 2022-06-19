@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AnswerBox } from "../../Components/answerBox";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
-import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
+import {PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
 const QandA=styled.div`
 display: flex;
@@ -17,7 +17,7 @@ font-weight: 900;
 `;
 
 export function BuildTeam(){
-    const [isLoggedIn,setIsLoggedIn]=useState(true); 
+    const [isLoggedIn]=useState(true); 
     return <PageContainer>
         <Navbar   isLoggedIn={isLoggedIn}/>
         <Marginer direction="vertical" margin={50}/>

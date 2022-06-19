@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { InnerPageContainer, PageContainer } from "../../Components/pageContainer";
 import { Navbar } from "../../Components/navbar";
 import { AccountBox } from "../../Components/accountBox";
-import { Marginer } from "../../Components/marginer";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
@@ -13,7 +12,7 @@ margin-bottom: 6em;
 
 export function CustomerAccessPage(props){
    const {action}= useParams()
-   const [isLoggedIn,setIsLoggedIn]=useState(false); 
+   const [isLoggedIn]=useState(false); 
 
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
