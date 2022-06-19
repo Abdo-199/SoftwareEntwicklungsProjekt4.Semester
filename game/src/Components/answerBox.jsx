@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+//styled component for the input field of the answers
 const Box=styled.input`
 height: 96px;
 width: 993px;

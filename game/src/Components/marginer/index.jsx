@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+// styled component Marginer: allows the coder to add margins either horizontal or vertical by calling the compenet and passing the type and value
 
 const HorizontalMargin = styled.span`
   display: flex;

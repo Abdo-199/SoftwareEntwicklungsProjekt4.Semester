@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-
+//Styled Component Button: for global use with editable font color/ fontsize/ and background color. also can get the onclick event
 const ButtonWrapper=styled.button`
 border: none;
 outline: none;
@@ -21,9 +21,9 @@ transition: all 200ms ease-in-out;
 }
 `;
 export function Button(props){
-
+    const onClick=props;
     const {size}=props;
     const {backGround}=props;
     const {color}=props;
-    return <ButtonWrapper color={color} size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
+    return <ButtonWrapper onClick={onClick} color={color} size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
 }

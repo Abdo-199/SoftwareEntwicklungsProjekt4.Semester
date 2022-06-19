@@ -2,8 +2,11 @@ import React, { useState} from 'react';
 import "./personasStyles.css"
 
 function PersonaForm(props) {
+  //Hook to set the value of the name
   const [inputName, setInputName] = useState(props.edit ? props.edit.value : '');
+  //Hook to set the value of the Gender
   const [inputGender, setInputGender] = useState(props.edit ? props.edit.value : '');
+  //Hook to set the value of the Bio
   const [inputBio, setInputBio] = useState(props.edit ? props.edit.value : '');
   
   const handleChangeName = e => {
@@ -15,7 +18,9 @@ function PersonaForm(props) {
   const handleChangeBio = e => {
     setInputBio(e.target.value);
   };
-
+  // event handler handles the click on the submit button 
+  //sets the values of persona{throug the call from persona list}
+  //id is randomly generated
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -30,7 +35,8 @@ function PersonaForm(props) {
     setInputBio('');
 
   };
-
+  //has two cases: edit / add {onClick on the edit icon in persona the Prop edit will be passed to the Personas form=> and the edit fields will be displayed}
+  
   return (
     <form onSubmit={handleSubmit} className='persona-form'>
       {props.edit ? (
@@ -40,7 +46,6 @@ function PersonaForm(props) {
             value={inputName}
             onChange={handleChangeName}
             name='name'
-           
             className='persona-input edit'
           />
            <input
@@ -48,7 +53,6 @@ function PersonaForm(props) {
             value={inputGender}
             onChange={handleChangeGender}
             name='gender'
-            
             className='persona-input edit'
           />
           
@@ -58,7 +62,6 @@ function PersonaForm(props) {
             value={inputBio}
             onChange={handleChangeBio}
             name='bio'
-            
             className='persona-input edit'
           />
           

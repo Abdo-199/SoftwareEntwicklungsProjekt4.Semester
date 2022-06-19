@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+//styled componet for the circles on the dashboard, radius and color can be changed
 const Card=styled.button`
 display: flex;
 color: black;

@@ -5,7 +5,7 @@ import { Marginer } from "../marginer";
 import {BsFillChatTextFill} from "react-icons/bs";
 import {AiOutlineClose} from "react-icons/ai";
 import Chat from "../Chat/chat";
-
+//navigation bar for the whole app
 const NavbarContainer = styled.div`
   width  : 100%;
   height: 65px;
@@ -45,11 +45,7 @@ border: none;
 border-radius: 5px;
 margin-left: 10px;
 `;
-const Seperator=styled.div`
-min-height: 50%;
-width: 1px;
-background-color: #fff;
-`;
+
 const AvatarImage =  styled.div`
   width: 35px;
   height: 40px;
@@ -59,10 +55,7 @@ const AvatarImage =  styled.div`
     height: 100%;
   }
 `;
-const Textstyle=styled.h2`
-color: #fff;
-font-size: 20px;
-`;
+
 const Sidebar=styled.nav`
 display: flex;
 flex-direction: column;
@@ -81,10 +74,17 @@ width:400px;
 display:flex;
 flex-direction: column;
 `;
+//navebar with two states logged in or not!
+//depinding on the value of the {prop:isLoggedIn} the chat button/avatar/level will be displayed or not
+
 export function Navbar({isLoggedIn,useTransparent}){
+  //Hook: the state of the side bar open or not
   const [isOpen, setSidebar] = useState(false);
+  //onClick on the chat icon or close icon this method is called, it inverts the value of the sideBar state{isOpen}
   const showSidebar = () => setSidebar(!isOpen);
+  //should display a window of account details
   const[showAccount, setShowAccount]=useState(false);
+  //sets the chat nickname
   const [username, setUsername] = useState("");
   console.log(isLoggedIn);
   const openAccount=()=>{

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import PersonaForm from './personasForm';
 import { AiOutlineCloseSquare,AiOutlineEdit } from 'react-icons/ai';
 import "./personasStyles.css"
-
+//persona object with props:
+//personas:list of persona
+//completePersona:
+//removePersona:
+//updatePersona:
 const Persona = ({ personas, completePersona, removePersona, updatePersona}) => {
 
 
@@ -13,7 +17,7 @@ const Persona = ({ personas, completePersona, removePersona, updatePersona}) => 
     valueBio:''
   });
   
-
+  //shold pass the values to the edit input field=> next sprint
   const submitUpdate = value => {
     updatePersona(edit.id, value);
     setEdit({
@@ -27,7 +31,7 @@ const Persona = ({ personas, completePersona, removePersona, updatePersona}) => 
   if (edit.id) {
     return <PersonaForm edit={edit} onSubmit={submitUpdate} />;
   }
-
+  //goes through the personas list 
   return personas.map((persona, index) => (
     <div
       className={persona.isComplete ? 'persona-row complete' : 'persona-row'}

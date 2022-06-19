@@ -20,6 +20,7 @@ import { AnalogousInspiration } from './Containers/challenges/analogousInspirati
 import { ProtoPersonas } from './Containers/challenges/protoPersonas';
 import { UpdatePersonas } from './Containers/challenges/updatePersonas';
 import { ExtremePersonas } from './Containers/challenges/extremePersonas';
+import { Prototype } from './Containers/challenges/prototype';
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
         <Route path ="/dashboard/frameit" element={< FrameIt/>}/>
         <Route path ="/dashboard/planit" element={< PlanIt/>}/>
         <Route path ="/dashboard/immersion" element={< Immersion/>}/>
-        <Route path ="/dashboard/howmeightwe" element={< HowMeightWe/>}/>
+        <Route path ="/dashboard/howmightwe" element={< HowMeightWe/>}/>
         <Route path ="/dashboard/collage" element={< Collage/>}/>
         <Route path ="/dashboard/interview" element={< Interview/>}/>
         <Route path ="/dashboard/peerobservingbeers" element={< PeersObservingPeers/>}/>
@@ -47,6 +48,7 @@ function App() {
         <Route path ="/dashboard/protopersonas" element={<ProtoPersonas/>}/>
         <Route path ="/dashboard/updatepersonas" element={<UpdatePersonas/>}/>
         <Route path ="/dashboard/extremepersonas" element={<ExtremePersonas/>}/>
+        <Route path ="/dashboard/prototype" element={<Prototype/>}/>
 
 
 

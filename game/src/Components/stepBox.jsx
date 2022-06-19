@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+//styled component to write the step num in a circle + disscription in the longer part
 const BoxContainer=styled.div`
 width: 1050px;
 height: 187px;

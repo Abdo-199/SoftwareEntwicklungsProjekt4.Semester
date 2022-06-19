@@ -5,7 +5,7 @@ import { Flipper, Flipped } from "react-flip-toolkit";
 import shuffle from "lodash.shuffle";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+//container to shuffle the elemments inside
 const Close=styled(AiOutlineClose)`
 color: #000;
 font-size: 32px;
@@ -29,7 +29,6 @@ height: 300px;
 box-shadow:0 5px 16px rgba(0,0,0,0.2);
 background: #fff;
 color: #000;
-
 position: relative;
 z-index: 10;
 border-radius: 10px;
@@ -38,10 +37,9 @@ const Box=styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-
 `;
 const List=styled.ul`
- list-style-type: none;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   
@@ -58,6 +56,7 @@ export const Shuffle=({showShuffle,setShowShuffle})=>{
     const [data, setData] = useState(['collage', 'interview', 'peerobservingbeers', 'cardsort', 'analogousinspiration', 'immersion']);
     console.log(data.at(2))
     const shuffleList = () => setData(shuffle(data));
+    //data.map: using the text to display+putting it inside the link rote
     return(<>
     {showShuffle? (
         
@@ -65,7 +64,6 @@ export const Shuffle=({showShuffle,setShowShuffle})=>{
        <Close onClick={console.log("clicked")}/>
        <Box>
        <Flipper flipKey={data.join("")}>
-       
           <List>
         {data.map(d => (
           <Flipped key={d} flipId={d}>
