@@ -28,34 +28,8 @@ export function TestPage(){
     const [messageReceived, setMessageReceived] = useState("Room connected");
     const [isLoggedIn]=useState(true); 
    
-    // To send the message to the sever -{emit}
-   /* const sendMessage = () => {
-       console.log(room);
-     socket.emit("send_message", { message: "Hallo an alle in meinem Raum", room});
-    };
-    
-    
-    
-    socket.on("roomNo", (data) =>{
-       // console.log("Angekommen an Parse Room");
-        setRoom(data);
-    });
-    
-  // To receive messages from server
-    useEffect(() => {
-      socket.on("receive_message", (data) => {
-      //  console.log(data.room);
-        setMessageReceived(data.message);
-    });
-    }, [socket]);
-    
-    const roomOutput = "JAA";
-
-    socket.on("connectToRoom", (data) =>{
-        roomOutput = data;
-    });
-
-    */
+ 
+  // to get the room number from the input field
     useEffect(() =>{
       
       socket.on("roomNo", (data) =>{

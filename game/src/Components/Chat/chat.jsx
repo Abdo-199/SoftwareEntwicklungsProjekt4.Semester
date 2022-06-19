@@ -16,7 +16,7 @@ function Chat(props) {
 
   let textString  = "";
   let currentMessage = "";
-
+//  get get the text from the inputfield
   const getInputValue = (event)=>{
     const inputText = event.target.value;
     setMessage(inputText);
@@ -26,7 +26,7 @@ function Chat(props) {
   //For more information
   
    // await socket.emit()
-  
+  // send the information from the client to the server
   const sendMessage = async () =>{
     
     const messageData = {
@@ -52,7 +52,7 @@ function Chat(props) {
     
   };
 
-
+  // reveive the message from the server to the client
   useEffect(() =>{
     socket.on("receive_message", (data)=>{
       if(currentMessage !== data.text)

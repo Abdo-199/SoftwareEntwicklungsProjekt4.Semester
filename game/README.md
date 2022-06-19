@@ -22,6 +22,7 @@ das backend läuft lokal auf dem Port 4000, da aber eine Verbindung mit dem Fron
 - "http://localhost:3000"
 Um die Funktionalität zu testen, müssen Sie zum 
  http://localhost:3000/intergame wechseln und dann anschließend ein neues Spiel starten "New Game" wenn Sie dann auf den Button drücken, erscheint in allen anderen Tabs, also alle anderen Clients eine Nachricht
+ - Chat funktioniert --> hierzu einfach die Raumnummer eingeben und im Chat schreiben
 
 ## Projekt Database
 MongoDB - The database shell (uses interactive javascript).
