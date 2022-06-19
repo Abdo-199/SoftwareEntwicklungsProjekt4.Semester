@@ -41,6 +41,13 @@ align-items: center;
 
 
 `;
+const Input=styled.input`
+width: 200px;
+height: 25px;
+border: none;
+border-radius: 5px;
+margin-left: 10px;
+`;
 const Seperator=styled.div`
 min-height: 50%;
 width: 1px;
@@ -60,23 +67,24 @@ color: #fff;
 font-size: 20px;
 `;
 const Sidebar=styled.nav`
-
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-
-
 background-color: #3164F4;
   width: 400px;
   height: 100vh;
-  
   position: fixed;
   top: 0;
   left: ${({left})=> left?'0':'-100%'};
   transition: 850ms;
   z-index: 1;
 `;
-export function Navbar({username,isLoggedIn,useTransparent}){
+const ChatContainer=styled.div`
+width:400px;
+display:flex;
+flex-direction: column;
+`;
+export function Navbar({isLoggedIn,useTransparent}){
   // const {useTransparent}=props;
   // const {username}=props;
   // const {left}=props;
@@ -84,6 +92,7 @@ export function Navbar({username,isLoggedIn,useTransparent}){
   const [isOpen, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!isOpen);
   const[showAccount, setShowAccount]=useState(false);
+  const [username, setUsername] = useState("");
  //const[loggedIn, setLoggedIn]=useState(false);
  // setLoggedIn(isLoggedIn)
   console.log(isLoggedIn);
@@ -122,7 +131,18 @@ return(
     <AiOutlineClose onClick={showSidebar} />
     <Marginer direction="vertical" margin= {40} />
     </IconContainer>
+    <ChatContainer>
+    <Input
+            type="text"
+            placeholder="Enter a chat nickname"
+            
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <Marginer direction="vertical" margin= {20} />
     <Chat username={username}/>
+    </ChatContainer>
     </Sidebar>
     </>
 );

@@ -35,7 +35,6 @@ export function TestPage(){
     //setRoom(room_nr);
     const [messageReceived, setMessageReceived] = useState("Room connected");
     const [username, setUsername] = useState("");
-    const [usernameC, setUsernameC] = useState("");
     const [isLoggedIn,setIsLoggedIn]=useState(true); 
    
     // To send the message to the sever -{emit}
@@ -69,25 +68,14 @@ export function TestPage(){
 
 return<PageContainer>
     <Navbar username={username} isLoggedIn={isLoggedIn}/>
-    
     <InnerCont>
     <Marginer direction="virtical" margin= {15} />
     <h2>Room-Nr.</h2>{room}
     <Marginer direction="virtical" margin= {15} />
-    
     <h1>Message: </h1>{messageReceived}
     <Marginer direction="virtical" margin= {15} />
     <button>Press here to show Messege</button>
-    <Marginer direction="virtical" margin= {15} />
-    <input
-            type="text"
-            placeholder="Enter a username here"
-            
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          
+    <Marginer direction="virtical" margin= {15} />      
     </InnerCont>
 </PageContainer>
 

@@ -9,7 +9,7 @@ import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 import { Shuffle } from "../../Components/shuffle";
 const DashContainer=styled.div`
-width:100%;
+width:100vh;
 height:100vh;
 background-color: #E3E4E6;
 `;
@@ -20,6 +20,12 @@ height: 40px;
 border-radius: 10px;
 color: #fff;
 `;
+const DashParent=styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`;
 export function Dashboard(){
   const[showShuffle, setShowShuffle]=useState(false);
   const [isLoggedIn,setIsLoggedIn]=useState(true); 
@@ -28,6 +34,7 @@ export function Dashboard(){
   };
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
+        <DashParent>
         <DashContainer>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>
@@ -91,5 +98,7 @@ export function Dashboard(){
         <OutRoomID placeholder="current room id"></OutRoomID>
         </Positioner>
         </DashContainer>
+        </DashParent>
+
         </PageContainer>
 }

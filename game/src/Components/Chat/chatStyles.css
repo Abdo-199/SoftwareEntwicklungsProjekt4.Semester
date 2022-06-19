@@ -1,6 +1,7 @@
 .chat-window {
-    width: 370px;
+    width: 400px;
     height: 420px;
+    
   }
   
   .chat-window p {
@@ -22,7 +23,7 @@
   }
   
   .chat-window .chat-body {
-    height: calc(450px - (45px + 70px));
+    height: calc(600px - (45px + 70px));
     border: 1px solid #263238;
     background: #fff;
   
@@ -42,6 +43,7 @@
     height: auto;
     padding: 10px;
     display: flex;
+    
   }
   
   .chat-window .chat-body .message .message-content {
@@ -49,10 +51,11 @@
     height: auto;
     min-height: 40px;
     max-width: 120px;
-    background-color: #43a047;
+    background-color: #3164F4;
     border-radius: 5px;
     color: white;
     display: flex;
+   
     align-items: center;
     margin-right: 5px;
     margin-left: 5px;
@@ -81,11 +84,11 @@
   
   #other .message-content {
     justify-content: flex-end;
-    background-color: cornflowerblue;
+    background-color: #a19898;
   }
   
   #other .message-meta {
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-right: 5px;
   }
   

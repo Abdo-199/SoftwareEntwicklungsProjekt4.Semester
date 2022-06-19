@@ -9,6 +9,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #E3E4E6;
 `;
 
