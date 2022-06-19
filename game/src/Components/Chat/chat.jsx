@@ -41,11 +41,15 @@ function Chat(props) {
     };
     
     setMessage(textString);
-    await socket.volatile.emit("send_message", messageData);
+    if(messageData.text !=""){
+
+      await socket.volatile.emit("send_message", messageData);
     setMessageList((list) => [...list, messageData]);
     console.log("Mess " + messageData.text)
 
     setcurrentMes("");
+    }
+    
   };
 
 

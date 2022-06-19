@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Marginer } from "../../Components/marginer";
+import {SocketContext, socket} from "../../sockeInstance";
 
 
 const InnerCont=styled.div`
@@ -22,7 +23,7 @@ export function TestPage(){
  //  const socket = useContext(SocketContext);
 
    //let room = socket.room:
-    const [room, setRoom] = useState("7");
+    const [room, setRoom] = useState("");
     //setRoom(room_nr);
     const [messageReceived, setMessageReceived] = useState("Room connected");
     const [isLoggedIn]=useState(true); 
@@ -55,6 +56,13 @@ export function TestPage(){
     });
 
     */
+    useEffect(() =>{
+      
+      socket.on("roomNo", (data) =>{
+        //console.log("Angekommen an Parse Room");
+        setRoom(data);
+    });
+    },[socket]);
 
 return<PageContainer>
     <Navbar isLoggedIn={isLoggedIn}/>

@@ -74,8 +74,17 @@ export function AddFriendPage(){
        //console.log(room_nr);
     };
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
 
     const [room, setRoom] = useState("");
+
+    const joinNewRoom = () =>{
+        let generateRoom = getRandomInt(500);
+        socket.emit("join_room", generateRoom.toString());
+    }
 
     const joinRoom = () => {
         if (room !== "") {
@@ -98,7 +107,7 @@ return <PageContainer>
         <Link to="/test">
                 
                 
-        <NewGameButton>New<br/> Game</NewGameButton>
+        <NewGameButton onClick={joinNewRoom}>New<br/> Game</NewGameButton>
         </Link>
     </AddInnerContainer>
     <Marginer direction="virtical" margin={500}/>
