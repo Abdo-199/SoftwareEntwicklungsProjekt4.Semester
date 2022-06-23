@@ -96,7 +96,7 @@ export function Navbar({isLoggedIn,useTransparent}){
 
   //LogOut function 
   const navigate = useNavigate();
-  const onHandle = (event) => {
+  const onHandle = async (event) => {
     event.preventDefault();
 
     
