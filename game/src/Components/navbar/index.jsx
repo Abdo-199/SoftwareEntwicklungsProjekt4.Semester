@@ -99,6 +99,8 @@ export function Navbar({isLoggedIn,useTransparent}){
   const onHandle = (event) => {
     event.preventDefault();
 
+    
+    navigate('/player/access/signin');
     console.log('test');
   }
   
