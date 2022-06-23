@@ -5,6 +5,8 @@ import { Marginer } from "../marginer";
 import {BsFillChatTextFill} from "react-icons/bs";
 import {AiOutlineClose} from "react-icons/ai";
 import Chat from "../Chat/chat";
+import { useNavigate } from 'react-router-dom';
+
 //navigation bar for the whole app
 const NavbarContainer = styled.div`
   width  : 100%;
@@ -91,6 +93,16 @@ export function Navbar({isLoggedIn,useTransparent}){
     setShowAccount(prev=>!prev)
   }
  
+
+  //LogOut function 
+  const navigate = useNavigate();
+  const onHandle = (event) => {
+    event.preventDefault();
+
+    console.log('test');
+  }
+  
+  
 return(
   <>
     <NavbarContainer useTransparent={useTransparent}> 
@@ -108,11 +120,13 @@ return(
        </AccessibilityContainer>
        {isLoggedIn?(
      <AccessibilityContainer>
+      <form onSubmit={onHandle}>
       <button  >log Out</button>
        <Marginer direction="horizontal" margin= {30} />
      <AvatarImage onClick={openAccount}>
        <img src={avatar} alt="" />
      </AvatarImage>
+     </form>
      </AccessibilityContainer>
      ):null}
      </NavbarContainer>
