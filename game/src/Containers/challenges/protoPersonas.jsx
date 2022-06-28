@@ -7,6 +7,7 @@ import { PageContainer } from "../../Components/pageContainer";
 import { StepBox } from "../../Components/stepBox";
 import { useState } from "react";
 import PersonaList from "../../Components/personas/personaslist";
+import "./challenegesStyles.css"
 const QandA=styled.div`
 display: flex;
 flex-direction: column;
@@ -30,6 +31,12 @@ justify-content: space-evenly;
 
 export function ProtoPersonas(){
     const [isLoggedIn]=useState(true); 
+    function handleChangeAnswer(event) {
+        console.log(event.target.value);
+      };
+    
+    
+
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
         <Marginer direction="vertical" margin={50}/>
@@ -39,19 +46,19 @@ export function ProtoPersonas(){
        <QandA>
         <Title>Think about these factors: age, gender, ethnicity, class, social position</Title>
         <Title> and describe your audience </Title>
-        <AnswerBox/>
+        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>
            <Title>With your team, write down the people or groups that are directlyinvolved </Title>
         <Title>in or reached by your project </Title>
-       <AnswerBox/>
+        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>
            <Title>Think about the connections these people have with your topic. </Title>
         <Title>Who are the fans? Who are the skeptics? Who do you most need onyour side? </Title>
-       <AnswerBox/>
+        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
        </QandA>
        
        </StepContainer>
