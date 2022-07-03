@@ -3,13 +3,28 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DashCard } from "../../Components/dashCard";
+import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 import { Shuffle } from "../../Components/shuffle";
-const DashContainer=styled.div`
-width:100vh;
-height:100vh;
+const Absolute=styled.div`
+position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  top: 65px;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 1400px;
+`;
+const DashContainer =styled.div`
+display: flexbox;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 background-color: #E3E4E6;
 `;
 const OutRoomID=styled.output`
@@ -34,9 +49,10 @@ export function Dashboard(){
     setShowShuffle(prev=>!prev)
   };
     return <PageContainer>
+
         <Navbar isLoggedIn={isLoggedIn}/>
-        <DashParent>
         <DashContainer>
+          <Absolute>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>
         </Positioner>
@@ -98,7 +114,7 @@ export function Dashboard(){
         <Positioner x={1199} y={319} >
         <DashCard onclick={openShuffle} radius={165} backgroundC="E0E32A"> Shuffel.</DashCard>
         </Positioner>
-        <Positioner x={600} y={300} >
+        <Positioner  >
          <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
         </Positioner>
         <Positioner x={1249} y={102} >
@@ -107,7 +123,7 @@ export function Dashboard(){
         <Positioner x={1100} y={100} >
         <OutRoomID placeholder="current room id"></OutRoomID>
         </Positioner>
+        </Absolute>
         </DashContainer>
-        </DashParent>
         </PageContainer>
 }

@@ -5,10 +5,12 @@ import { Flipper, Flipped } from "react-flip-toolkit";
 import shuffle from "lodash.shuffle";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Marginer } from './marginer';
 //container to shuffle the elemments inside
 const Close=styled(AiOutlineClose)`
 color: #000;
 font-size: 32px;
+cursor:pointer;
 `;
 const ShuffleButton=styled.button`
 background-color: #E0E32A;
@@ -74,6 +76,7 @@ export const Shuffle=({showShuffle,setShowShuffle})=>{
         ))}
          </List>
        </Flipper>
+       <Marginer direction="vertical" margin={20}/>
       <ShuffleButton onClick={shuffleList}>reshuffle</ShuffleButton> 
       </Box>       
             </ShuffleWrapper>
