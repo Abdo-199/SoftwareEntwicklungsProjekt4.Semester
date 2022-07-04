@@ -8,6 +8,8 @@ import { StepBox } from "../../Components/stepBox";
 import { useState } from "react";
 import PersonaList from "../../Components/personas/personaslist";
 import "./challenegesStyles.css"
+import { socket} from  "../../sockeInstance";
+
 const QandA=styled.div`
 display: flex;
 flex-direction: column;
@@ -30,12 +32,28 @@ justify-content: space-evenly;
 
 
 export function ProtoPersonas(){
+    const inputContent = "";
     const [isLoggedIn]=useState(true); 
     function handleChangeAnswer(event) {
         console.log(event.target.value);
       };
     
+      const getInputValue = (event)=>{
+        // show the user input value to console
+         inputContent = event.target.value;
     
+    
+       //console.log(room_nr);
+    };
+    
+
+    socket.on("news_by_server", function(data){
+        socket.emit("get_content", inputContent);
+      });
+
+    socket.on("get_content_toClient", (data) =>{
+        getInputValue = data;
+    })  
 
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
@@ -46,7 +64,7 @@ export function ProtoPersonas(){
        <QandA>
         <Title>Think about these factors: age, gender, ethnicity, class, social position</Title>
         <Title> and describe your audience </Title>
-        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
+        <input onChange={getInputValue} className='inputChallenge' onChane={handleChangeAnswer}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>

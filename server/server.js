@@ -88,6 +88,12 @@ io.on("connection", (socket) => {
         console.log("Nahricht wurde abgeschickt");
         console.log("Nachricht war: "+ data.text)
     });
+    setInterval(function(){
+      socket.emit('news_by_server', 'Comitting');
+  }, 10000);
+  socket.on("get_content", (data)=>{
+    socket.broadcast.emit("get_content_toClient", data);
+  });
 });
 
 server.listen(4000, () => {
