@@ -18,6 +18,28 @@ const NavbarContainer = styled.div`
   background-color: ${({useTransparent}) => useTransparent? "transparent":"#3164F4"};
 
 `;
+const Account=styled.div`
+  background: linear-gradient(
+      
+      #3164F4 0%,
+      rgb(151, 140, 234) 100%
+    );;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 68px;
+  right: 30px;
+  list-style: none;
+  text-align: start;
+  transition: 850ms;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+`;
 const LogoConatiner=styled.div`
 display: flex;
 flex-direction: column;
@@ -51,7 +73,7 @@ margin-left: 10px;
 const AvatarImage =  styled.div`
   width: 35px;
   height: 40px;
-  
+  cursor:pointer;
   img {
     width: 100%;
     height: 100%;
@@ -75,6 +97,28 @@ const ChatContainer=styled.div`
 width:400px;
 display:flex;
 flex-direction: column;
+`;
+const Spacer=styled.div`
+width: 100px;
+`;
+const ButtonOut=styled.button`
+width: 150px;
+height: 30px;
+background-color:#288313;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor:pointer;
+transition: all 200ms ease-in-out;
+&:hover{
+    background-color: #c31919;
+}
+&:focus{
+    outline: none;
+}
+`;
+const UserData=styled.h1`
+font-size: 15px;
 `;
 //navebar with two states logged in or not!
 //depinding on the value of the {prop:isLoggedIn} the chat button/avatar/level will be displayed or not
@@ -122,13 +166,20 @@ return(
        </AccessibilityContainer>
        {isLoggedIn?(
      <AccessibilityContainer>
-      <form onSubmit={onHandle}>
-      <button  >log Out</button>
-       <Marginer direction="horizontal" margin= {30} />
+      {showAccount? <Account>
+        <UserData>Username: </UserData>
+        <UserData>Username: </UserData>
+        <form onSubmit={onHandle}>
+        <ButtonOut  >log Out</ButtonOut>
+        </form>
+
+
+      </Account>:null}
      <AvatarImage onClick={openAccount}>
        <img src={avatar} alt="" />
      </AvatarImage>
-     </form>
+     <Spacer/>
+    
      </AccessibilityContainer>
      ):null}
      </NavbarContainer>

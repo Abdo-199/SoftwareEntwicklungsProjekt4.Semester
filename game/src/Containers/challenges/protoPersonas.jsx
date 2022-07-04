@@ -64,27 +64,30 @@ export function ProtoPersonas(){
        <QandA>
         <Title>Think about these factors: age, gender, ethnicity, class, social position</Title>
         <Title> and describe your audience </Title>
-        <input onChange={getInputValue} className='inputChallenge' onChane={handleChangeAnswer}></input>
+
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>
            <Title>With your team, write down the people or groups that are directlyinvolved </Title>
         <Title>in or reached by your project </Title>
-        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
+        <input className='inputChallenge' onChange={handleChangeAnswer}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>
            <Title>Think about the connections these people have with your topic. </Title>
         <Title>Who are the fans? Who are the skeptics? Who do you most need onyour side? </Title>
-        <input className='inputChallenge' onChane={handleChangeAnswer}></input>
+        <input className='inputChallenge' onChange={handleChangeAnswer}></input>
        </QandA>
-       
        </StepContainer>
        <Marginer direction="vertical" margin={50}/>
        <StepBox stepNum="step 2" stepTitel="check your budgate and staff"/>
        <Marginer direction="vertical" margin={50}/>
-      
-      <PersonaList/>
+       <PersonaList/>
+       <Marginer direction="vertical" margin={20}/>
+       <button className="submit-button">Submit</button>
+       <Marginer direction="vertical" margin={50}/>
+
+
 
        </PageContainer>
     
