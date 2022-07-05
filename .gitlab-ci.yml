@@ -1,6 +1,7 @@
 build project:
   image: node:16.14.2
   script:
+    - cd game
     - npm install
     - npm test
     - npm build
