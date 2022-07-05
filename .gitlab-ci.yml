@@ -4,4 +4,4 @@ build project:
     - cd game
     - npm install
     - npm test
-    - npm build
+    - npm run build
