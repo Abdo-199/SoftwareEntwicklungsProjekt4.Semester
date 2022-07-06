@@ -90,7 +90,7 @@ io.on("connection", (socket) => {
     });
     setInterval(function(){
       socket.emit('news_by_server', 'Comitting');
-  }, 10000);
+  }, 1000);
   socket.on("get_content", (data)=>{
     socket.broadcast.emit("get_content_toClient", data);
   });

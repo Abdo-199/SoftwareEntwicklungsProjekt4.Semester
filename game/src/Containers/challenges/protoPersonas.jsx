@@ -9,6 +9,7 @@ import { useState } from "react";
 import PersonaList from "../../Components/personas/personaslist";
 import "./challenegesStyles.css"
 import { socket} from  "../../sockeInstance";
+import { useEffect } from "react";
 
 const QandA=styled.div`
 display: flex;
@@ -32,11 +33,30 @@ justify-content: space-evenly;
 
 
 export function ProtoPersonas(){
+
     const inputContent = "";
     const [isLoggedIn]=useState(true); 
+    const elem = document.querySelector('.inputChallenge');
+
+    useEffect(() => {
+      const interval = setInterval(function() {
+        giveFeedback();
+      }, 500);
+      return () => clearInterval(interval);
+    } )
+  
     function handleChangeAnswer(event) {
         console.log(event.target.value);
       };
+
+      function giveFeedback(){
+        if (elem === document.activeElement) {
+          console.log("Element has focus!");     
+        } else {
+          console.log("Element is not focused.");
+        }
+      }
+   
     
       const getInputValue = (event)=>{
         // show the user input value to console
@@ -52,7 +72,7 @@ export function ProtoPersonas(){
       });
 
     socket.on("get_content_toClient", (data) =>{
-        getInputValue = data;
+        //getInputValue = data;
     })  
 
     return <PageContainer>
@@ -76,7 +96,7 @@ export function ProtoPersonas(){
        <QandA>
            <Title>Think about the connections these people have with your topic. </Title>
         <Title>Who are the fans? Who are the skeptics? Who do you most need onyour side? </Title>
-        <input className='inputChallenge' onChange={handleChangeAnswer}></input>
+        <input className='inputChallenge1' onChange={handleChangeAnswer}></input>
        </QandA>
        </StepContainer>
        <Marginer direction="vertical" margin={50}/>
