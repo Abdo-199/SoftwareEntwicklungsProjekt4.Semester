@@ -97,16 +97,14 @@ return <PageContainer>
     <Marginer direction="virtical" margin={200}/>
     <AddInnerContainer>
         <JoinYourFriendsContainer>
-        <Link to="/test">
+        <Link to="/dashboard">
         <JoinYourFriendsButton onClick={joinRoom}>Join your<br/> friends</JoinYourFriendsButton>
         </Link>
         <Marginer direction="virtical" margin={30}/>
         <IdInput  type="roomId" placeholder="Room ID" 
         onChange={getInputValue}/>
         </JoinYourFriendsContainer>
-        <Link to="/test">
-                
-                
+        <Link to="/dashboard">     
         <NewGameButton onClick={joinNewRoom}>New<br/> Game</NewGameButton>
         </Link>
     </AddInnerContainer>

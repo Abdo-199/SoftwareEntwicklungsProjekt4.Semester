@@ -3,5 +3,5 @@ build project:
   script:
     - cd game
     - npm install
-    - npm run build
+    
     
