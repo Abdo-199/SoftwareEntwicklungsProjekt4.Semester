@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DashCard } from "../../Components/dashCard";
@@ -8,6 +8,8 @@ import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 import { Shuffle } from "../../Components/shuffle";
+import {SocketContext, socket} from "../../sockeInstance";
+
 const Absolute=styled.div`
 position: absolute; 
   left: 0; 
@@ -43,16 +45,39 @@ justify-content: center;
 export function Dashboard(){
   //openSchuffle changes the state of showSchuffle=> showing the shuffle 
   const[showShuffle, setShowShuffle]=useState(false);
+  const [room, setRoom] = useState("1");
   const [isLoggedIn]=useState(true);
+  let roomNr;
   //onClick on the dashCard Schuffle => openSchffle is called and then setShowSchuffle invert 
   const openShuffle=()=>{
     setShowShuffle(prev=>!prev)
   };
+
+
+
+  useEffect(() =>{
+      
+    socket.on("roomNo", (data) =>{
+      //console.log("Angekommen an Parse Room");
+      setRoom(data);
+  });
+  },[socket]);
+
+  const joinRoom = () => {
+    if (room !== "") {
+        socket.emit("join_room", room);
+    }
+  };
+
+
     return <PageContainer>
 
         <Navbar isLoggedIn={isLoggedIn}/>
         <DashContainer>
           <Absolute>
+          <Positioner x={50} y={400} >
+          <h1 ></h1>{room}
+        </Positioner>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>
         </Positioner>
@@ -76,7 +101,7 @@ export function Dashboard(){
         </Positioner>
         <Positioner x={352} y={408} >
         <Link to="/dashboard/protopersonas">
-        <DashCard  radius={120} backgroundC="2AE01F"> Proto<br/> Personas</DashCard>
+        <DashCard onclick={joinRoom}  radius={120} backgroundC="2AE01F"> Proto<br/> Personas</DashCard>
         </Link>
         </Positioner>
         <Positioner x={206} y={371} >

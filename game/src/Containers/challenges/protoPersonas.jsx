@@ -30,52 +30,78 @@ justify-content: space-evenly;
 
 `;
 
+let myFocusActive = false;
+let otherFocusActive = false;
+
 
 
 export function ProtoPersonas(){
 
     let inputContent = "";
     const [text, setText] = useState("");
+    const [room, setRoom] = useState("0");
     const [isLoggedIn]=useState(true); 
     const elem = document.querySelector('.inputChallenge') ;
+    const elem2 = document.getElementById('inputfield');
+
     
 
-    useEffect(() => {
+ /*   useEffect(() => {
       const interval = setInterval(function() {
-        giveFeedback();
-      },3000);
+      //  giveFeedback();
+      },1000);
       return () => clearInterval(interval);
     } );
-  
+  */
+
+    function changeInputType(){
+        elem2.ariaReadOnly = true;
+    }
+
     function handleChangeAnswer(event) {
         console.log(event.target.value);
       };
 
-      function giveFeedback(){
-        if (elem === document.activeElement) {
-          console.log("Element has focus!");
-          socket.emit("Focus is activ", text);     
-        } else {
-          console.log("Element is not focused.");
-        }
-      }
-   
-    
-      const getInputValue = (event)=>{
-         inputContent = event.target.value;
-    
-         setText(inputContent);
-    
-       
-    };
-    
-    
-    socket.on("get text", (data) =>{
-        console.log(data);
-        if(data != null){
-          elem.value = data;
-        }
+      
+    const getInputValue = (event)=>{
         
+        inputContent = event.target.value;
+   
+        setText(inputContent);
+     
+      };
+   
+   
+
+      useEffect(() => {
+        const interval = setInterval(function() {
+          if (document.activeElement === elem2) {
+            myFocusActive = true;
+            console.log('element has focus');
+            socket.emit("Focus is activ", text);     
+          } else {
+            console.log('element does NOT have focus');
+            myFocusActive = false;
+          }
+        },2000);
+        return () => clearInterval(interval);
+      });
+    
+      
+
+    socket.on("get text", (data) =>{
+        console.log(data);  
+     
+        let content = "";
+        if(data != null){
+          content = data;
+        }
+        if(!content === "" && !content === null){
+        
+          elem2.value = content;
+
+        }
+      
     });  
 
     return <PageContainer>
@@ -93,13 +119,13 @@ export function ProtoPersonas(){
        <QandA>
            <Title>With your team, write down the people or groups that are directlyinvolved </Title>
         <Title>in or reached by your project </Title>
-        <input className='inputChallenge' onChange={getInputValue}></input>
+        <input id="inputfield" className='inputChallenge' onChange={getInputValue}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>
            <Title>Think about the connections these people have with your topic. </Title>
         <Title>Who are the fans? Who are the skeptics? Who do you most need onyour side? </Title>
-        <input className='inputChallenge1' onChange={handleChangeAnswer}></input>
+        <input className='inputChallenge' onChange={handleChangeAnswer}></input>
        </QandA>
        </StepContainer>
        <Marginer direction="vertical" margin={50}/>
