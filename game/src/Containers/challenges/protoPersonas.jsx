@@ -34,16 +34,18 @@ justify-content: space-evenly;
 
 export function ProtoPersonas(){
 
-    const inputContent = "";
+    let inputContent = "";
+    const [text, setText] = useState("");
     const [isLoggedIn]=useState(true); 
-    const elem = document.querySelector('.inputChallenge');
+    const elem = document.querySelector('.inputChallenge') ;
+    
 
     useEffect(() => {
       const interval = setInterval(function() {
         giveFeedback();
-      }, 500);
+      },3000);
       return () => clearInterval(interval);
-    } )
+    } );
   
     function handleChangeAnswer(event) {
         console.log(event.target.value);
@@ -51,7 +53,8 @@ export function ProtoPersonas(){
 
       function giveFeedback(){
         if (elem === document.activeElement) {
-          console.log("Element has focus!");     
+          console.log("Element has focus!");
+          socket.emit("Focus is activ", text);     
         } else {
           console.log("Element is not focused.");
         }
@@ -59,21 +62,21 @@ export function ProtoPersonas(){
    
     
       const getInputValue = (event)=>{
-        // show the user input value to console
          inputContent = event.target.value;
     
+         setText(inputContent);
     
-       //console.log(room_nr);
+       
     };
     
-
-    socket.on("news_by_server", function(data){
-        socket.emit("get_content", inputContent);
-      });
-
-    socket.on("get_content_toClient", (data) =>{
-        //getInputValue = data;
-    })  
+    
+    socket.on("get text", (data) =>{
+        console.log(data);
+        if(data != null){
+          elem.value = data;
+        }
+        
+    });  
 
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
@@ -90,7 +93,7 @@ export function ProtoPersonas(){
        <QandA>
            <Title>With your team, write down the people or groups that are directlyinvolved </Title>
         <Title>in or reached by your project </Title>
-        <input className='inputChallenge' onChange={handleChangeAnswer}></input>
+        <input className='inputChallenge' onChange={getInputValue}></input>
        </QandA>
        <Marginer direction="vertical" margin={20}/>
        <QandA>

@@ -84,6 +84,7 @@ export function AddFriendPage(){
     const joinNewRoom = () =>{
         let generateRoom = getRandomInt(500);
         socket.emit("join_room", generateRoom.toString());
+        console.log("Joined" + generateRoom);
     }
 
     const joinRoom = () => {

@@ -132,7 +132,7 @@ export function Navbar({isLoggedIn,useTransparent}){
   const[showAccount, setShowAccount]=useState(false);
   //sets the chat nickname
   const [username, setUsername] = useState("");
-  console.log(isLoggedIn);
+ // console.log(isLoggedIn);
   const openAccount=()=>{
     setShowAccount(prev=>!prev)
   }
@@ -145,7 +145,7 @@ export function Navbar({isLoggedIn,useTransparent}){
 
     
     navigate('/player/access/signin');
-    console.log('test');
+   // console.log('test');
   }
   
   

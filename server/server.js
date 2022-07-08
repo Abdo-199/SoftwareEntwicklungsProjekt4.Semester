@@ -73,7 +73,7 @@ io.on("connection", (socket) => {
 
     socket.on("join_room", (data) => {
         socket.join(data);
-        console.log(socket.rooms); // the Set contains at least the socket ID
+        console.log(socket.rooms); 
         socket.emit("roomNo", data);
     });
     socket.on("disconnect", (socket) => {
@@ -88,12 +88,10 @@ io.on("connection", (socket) => {
         console.log("Nahricht wurde abgeschickt");
         console.log("Nachricht war: "+ data.text)
     });
-    setInterval(function(){
-      socket.emit('news_by_server', 'Comitting');
-  }, 1000);
-  socket.on("get_content", (data)=>{
-    socket.broadcast.emit("get_content_toClient", data);
-  });
+    socket.on("Focus is activ",(data) => {
+      console.log(data);
+      socket.broadcast.emit("get text", data);
+    });
 });
 
 server.listen(4000, () => {
