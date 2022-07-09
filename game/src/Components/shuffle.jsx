@@ -53,9 +53,9 @@ const ListI=styled.li`
   color: #fff;
   padding: 3px;
 `;
-export const Shuffle=({showShuffle,setShowShuffle})=>{
+export const Shuffle=({showShuffle,setShowShuffle,preDefined})=>{
     
-    const [data, setData] = useState(['collage', 'interview', 'peerobservingbeers', 'cardsort', 'analogousinspiration', 'immersion']);
+    const [data, setData] = useState(preDefined);
     console.log(data.at(2))
     const shuffleList = () => setData(shuffle(data));
     //data.map: using the text to display+putting it inside the link rote
@@ -77,9 +77,9 @@ export const Shuffle=({showShuffle,setShowShuffle})=>{
          </List>
        </Flipper>
        <Marginer direction="vertical" margin={20}/>
-      <ShuffleButton onClick={shuffleList}>reshuffle</ShuffleButton> 
-      </Box>       
-            </ShuffleWrapper>
+       <ShuffleButton onClick={shuffleList}>reshuffle</ShuffleButton> 
+       </Box>       
+      </ShuffleWrapper>
     ):null}
     </>)
        

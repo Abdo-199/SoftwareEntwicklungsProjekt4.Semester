@@ -9,6 +9,7 @@ import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 import { Shuffle } from "../../Components/shuffle";
 import {SocketContext, socket} from "../../sockeInstance";
+import update from 'immutability-helper';
 
 const Absolute=styled.div`
 position: absolute; 
@@ -45,15 +46,35 @@ justify-content: center;
 export function Dashboard(){
   //openSchuffle changes the state of showSchuffle=> showing the shuffle 
   const[showShuffle, setShowShuffle]=useState(false);
+  const arr=['a','m','c'];
+  const[toShuffle,setToShuffle]=useState(arr);
+  
   const [room, setRoom] = useState("1");
   const [isLoggedIn]=useState(true);
   let roomNr;
   //onClick on the dashCard Schuffle => openSchffle is called and then setShowSchuffle invert 
-  const openShuffle=()=>{
-    setShowShuffle(prev=>!prev)
+  
+  function openShuffle(n){
+    const state1= ['immersion','analogousInspiration','PeersObservingPeers','CardSort','Interview','Collage'];
+    const state2= ['Brainstorming','AttributeListing','Brainwriting','OsbornChecklist','LotusBlossomTechnique','ReverseBrainstorming'];
+    const state3=['RolePlay','PaperPrototyping','CardboardPrototyping','Mockups','WireFrames']
+    if (n==1)
+    {
+      setToShuffle(state1);
+    }
+    else if (n==2)
+    {
+      setToShuffle(state2);
+    }
+    else
+    {
+      setToShuffle(state3);
+    }
+    
+    setShowShuffle(prev=>!prev);
   };
-
-
+  console.log(toShuffle[1])
+  
 
   useEffect(() =>{
       
@@ -84,7 +105,7 @@ export function Dashboard(){
         <Positioner x={208} y={627} >
         <Link to="/dashboard/frameit">
         <DashCard radius={80} backgroundC="2AE01F">Frame<br/>it</DashCard>
-        </Link>
+        </Link >
         </Positioner>
         <Positioner x={312} y={590} >
         <Link to="/dashboard/planit">
@@ -105,7 +126,7 @@ export function Dashboard(){
         </Link>
         </Positioner>
         <Positioner x={206} y={371} >
-        <DashCard onclick={openShuffle} radius={120} backgroundC="E0E32A"> Shuffel</DashCard>
+        <DashCard onclick={()=> openShuffle('1')} radius={120} backgroundC="E0E32A"> Shuffle</DashCard>
         </Positioner>
         <Positioner x={86} y={261} >
         <DashCard radius={140} > Define</DashCard>
@@ -129,7 +150,7 @@ export function Dashboard(){
         <DashCard radius={160} > Ideate</DashCard>
         </Positioner>
         <Positioner x={848} y={371} >
-        <DashCard radius={165} backgroundC="E0E32A" > Shuffel</DashCard>
+        <DashCard radius={165} backgroundC="E0E32A"  onclick={()=> openShuffle('2')}> Shuffle</DashCard>
         </Positioner>
         <Positioner x={1034} y={447} >
         <Link to="/dashboard/prototype">
@@ -137,10 +158,10 @@ export function Dashboard(){
         </Link>
         </Positioner>
         <Positioner x={1199} y={319} >
-        <DashCard onclick={openShuffle} radius={165} backgroundC="E0E32A"> Shuffel.</DashCard>
+        <DashCard onclick={()=> openShuffle('3')} radius={165} backgroundC="E0E32A"> Shuffle</DashCard>
         </Positioner>
         <Positioner  >
-         <Shuffle showShuffle={showShuffle} setShowShuffle={setShowShuffle}  />
+        { showShuffle?<Shuffle showShuffle={showShuffle} preDefined={toShuffle}  />: null}
         </Positioner>
         <Positioner x={1249} y={102} >
         <DashCard radius={200} >Test</DashCard>

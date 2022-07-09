@@ -14,6 +14,7 @@ height: ${({radius})=> radius?radius+"px":"15px"};
 border-radius: ${({radius})=> radius?radius+"px":"15px"};
 background-color: ${({backgroundC})=> backgroundC? "#"+ backgroundC: "#3164F4"};
 cursor: pointer;
+text-decoration: none;
 border: none;
 transition: all 200ms ease-in-out;
 :hover{
