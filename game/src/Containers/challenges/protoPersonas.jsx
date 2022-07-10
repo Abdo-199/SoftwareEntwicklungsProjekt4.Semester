@@ -35,29 +35,12 @@ justify-content: space-evenly;
 
 export function ProtoPersonas(){
     // eslint-disable-next-line
-    let myFocusActive = false;
     // eslint-disable-next-line
-    let otherFocusActive = false;
     let inputContent = "";
     const [text, setText] = useState("");
     //const [room, setRoom] = useState("0");
     const [isLoggedIn]=useState(true); 
-    //const elem = document.querySelector('.inputChallenge') ;
     const elem2 = document.getElementById('inputfield');
-
-    
-
- /*   useEffect(() => {
-      const interval = setInterval(function() {
-      //  giveFeedback();
-      },1000);
-      return () => clearInterval(interval);
-    } );
-  */
-
-    /*function changeInputType(){
-        elem2.ariaReadOnly = true;
-    }*/
 
     function handleChangeAnswer(event) {
         console.log(event.target.value);
@@ -77,13 +60,10 @@ export function ProtoPersonas(){
       useEffect(() => {
         const interval = setInterval(function() {
           if (document.activeElement === elem2) {
-            // eslint-disable-next-line
-            myFocusActive = true;
             console.log('element has focus');
             socket.emit("Focus is activ", text);     
           } else {
             console.log('element does NOT have focus');
-            myFocusActive = false;
           }
         },2000);
         return () => clearInterval(interval);
