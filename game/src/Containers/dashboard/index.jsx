@@ -46,7 +46,7 @@ export function Dashboard(){
   const [room, setRoom] = useState("1");
   const [isLoggedIn]=useState(true);
   //onClick on the dashCard Schuffle => openSchffle is called and then setShowSchuffle invert 
-  
+  //openSchuffle can be called with three indexes => send defrent list to the shuffle component
   function openShuffle(n){
     const state1= ['immersion','analogousInspiration','PeersObservingPeers','CardSort','Interview','Collage'];
     const state2= ['Brainstorming','AttributeListing','Brainwriting','OsbornChecklist','LotusBlossomTechnique','ReverseBrainstorming'];

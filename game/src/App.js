@@ -39,11 +39,11 @@ function App() {
         <Route path ="/dashboard/immersion" element={< Immersion/>}/>
         <Route path ="/dashboard/howmightwe" element={< HowMeightWe/>}/>
         <Route path ="/dashboard/collage" element={< Collage/>}/>
-        <Route path ="/dashboard/interview" element={< Interview/>}/>
-        <Route path ="/dashboard/peerobservingbeers" element={< PeersObservingPeers/>}/>
-        <Route path ="/dashboard/cardsort" element={< Cardsort/>}/>
-        <Route path ="/dashboard/collage" element={< Collage/>}/>
-        <Route path ="/dashboard/analogousinspiration" element={< AnalogousInspiration/>}/>
+        <Route path ="/dashboard/Interview" element={< Interview/>}/>
+        <Route path ="/dashboard/PeersObservingPeers" element={< PeersObservingPeers/>}/>
+        <Route path ="/dashboard/CardSort" element={< Cardsort/>}/>
+        <Route path ="/dashboard/Collage" element={< Collage/>}/>
+        <Route path ="/dashboard/analogousInspiration" element={< AnalogousInspiration/>}/>
         <Route path ="/dashboard/protopersonas" element={<ProtoPersonas/>}/>
         <Route path ="/dashboard/updatepersonas" element={<UpdatePersonas/>}/>
         <Route path ="/dashboard/extremepersonas" element={<ExtremePersonas/>}/>

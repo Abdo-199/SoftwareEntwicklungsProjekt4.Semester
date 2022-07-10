@@ -53,7 +53,7 @@ const ListI=styled.li`
   color: #fff;
   padding: 3px;
 `;
-export const Shuffle=({showShuffle,setShowShuffle,preDefined})=>{
+export const Shuffle=({showShuffle,preDefined})=>{
     
     const [data, setData] = useState(preDefined);
     console.log(data.at(2))
