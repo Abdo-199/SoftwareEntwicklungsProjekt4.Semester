@@ -52,11 +52,13 @@ export function Dashboard(){
     const state1= ['immersion','analogousInspiration','PeersObservingPeers','CardSort','Interview','Collage'];
     const state2= ['Brainstorming','AttributeListing','Brainwriting','OsbornChecklist','LotusBlossomTechnique','ReverseBrainstorming'];
     const state3=['RolePlay','PaperPrototyping','CardboardPrototyping','Mockups','WireFrames']
-    if (n===1)
+    // eslint-disable-next-line
+    if (n==1)
     {
       setToShuffle(state1);
     }
-    else if (n===2)
+    // eslint-disable-next-line
+    else if (n==2)
     {
       setToShuffle(state2);
     }

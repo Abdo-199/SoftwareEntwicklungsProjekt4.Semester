@@ -3,6 +3,7 @@ build project:
   script:
     - cd game
     - npm i
+    - npm test
     - npm run build
     
     

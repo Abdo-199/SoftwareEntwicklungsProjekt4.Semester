@@ -21,9 +21,9 @@ transition: all 200ms ease-in-out;
 }
 `;
 export function Button(props){
-    const onClick=props;
+    
     const {size}=props;
     const {backGround}=props;
     const {color}=props;
-    return <ButtonWrapper onClick={onClick} color={color} size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
+    return <ButtonWrapper  color={color} size={size} backGround={backGround}> {props.children}</ButtonWrapper>;
 }
