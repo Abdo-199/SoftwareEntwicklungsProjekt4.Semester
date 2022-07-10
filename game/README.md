@@ -11,6 +11,10 @@ um den dashboard anzusehen
 http://localhost:3000/dashboard
 Klicken Sie auf den Challenge Team Up, um einen Challenge Vorlage anzusehen
 
+to run the Ci pipeline you have to set Docker on your machiene and run it.
+after that you create a container and then push to the branch 
+
+
 ## Project Build back-end
 Um die notwendigen Packete runterzuladen müssen Sie zuerst in den Ornder Server gehen
 - "cd server"

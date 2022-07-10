@@ -7,7 +7,7 @@ position: absolute;
   top:  ${({y})=> y?y+"px": "50%"};
   transform: translate(-50%,-50%);
 `;
-
+//absolout positioner component to be reused
 export function Positioner(props){
     const{x}=props;
     const {y}=props;

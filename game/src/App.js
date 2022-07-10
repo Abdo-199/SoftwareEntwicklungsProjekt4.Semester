@@ -20,6 +20,7 @@ import { ProtoPersonas } from './Containers/challenges/protoPersonas';
 import { UpdatePersonas } from './Containers/challenges/updatePersonas';
 import { ExtremePersonas } from './Containers/challenges/extremePersonas';
 import { Prototype } from './Containers/challenges/prototype';
+import { Avatar } from './Containers/avatar';
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
         <Route path ="/dashboard/updatepersonas" element={<UpdatePersonas/>}/>
         <Route path ="/dashboard/extremepersonas" element={<ExtremePersonas/>}/>
         <Route path ="/dashboard/prototype" element={<Prototype/>}/>
+        <Route path ="/avatar" element={<Avatar/>}/>
+
 
 
 

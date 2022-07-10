@@ -45,7 +45,6 @@ export function Dashboard(){
   
   const [room, setRoom] = useState("1");
   const [isLoggedIn]=useState(true);
-  //let roomNr;
   //onClick on the dashCard Schuffle => openSchffle is called and then setShowSchuffle invert 
   
   function openShuffle(n){
@@ -86,10 +85,7 @@ export function Dashboard(){
     return <PageContainer>
         <Navbar isLoggedIn={isLoggedIn}/>
         <DashContainer>
-          <Absolute>
-          <Positioner x={50} y={400} >
-          {room}
-        </Positioner>
+        <Absolute>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>
         </Positioner>

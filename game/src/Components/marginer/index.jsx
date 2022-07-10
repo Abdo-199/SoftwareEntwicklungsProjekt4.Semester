@@ -14,7 +14,7 @@ const VerticalMargin = styled.span`
     typeof margin === "string" ? margin : `${margin}px`};
 `;
 
-function Marginer(props) {
+export function Marginer(props) {
   const { direction } = props;
 
   if (direction === "horizontal") return <HorizontalMargin {...props} />;
@@ -27,4 +27,3 @@ Marginer.defaultProps = {
   direction: "horizontal",
 };
 
-export { Marginer };

@@ -8,17 +8,14 @@ import { Link } from "react-router-dom";
 const TopSectionContainer= styled.div`
 width:100%;
 height:1000px;
-
 background-color: #E3E4E6;
 `;
 const TopSectionInnerContainer=styled.div`
 Width: 100%;
 height:100%;
 display:flex;
-
 justify-content: space-evenly;
 `;
-
 const StandoutImage =  styled.div`
   width: 30em;
   height: 30em;
@@ -28,7 +25,6 @@ const StandoutImage =  styled.div`
   }
 `;
 const LogoConatiner=styled.div`
-
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -46,7 +42,6 @@ line-height: 1.4;
 color: black;
 font-weight: 500;
 font-size: 45px;
-
 `;
 const SloganTextContainer=styled.div`
 display: flex;
@@ -56,10 +51,7 @@ align-items: flex-start;
 const ButtonContainer=styled.div`
 display: flex;
 flex-direction: row;
-
 `;
-
-
 export function TopSection(props){
     return <TopSectionContainer>
         <Marginer direction="vertical" margin= {15}/>
@@ -84,6 +76,7 @@ export function TopSection(props){
                 <Link to="player/access/signup">
                 <Button >Sign-up</Button>
                 </Link>
+
                 </ButtonContainer>
             </SloganTextContainer>
         <StandoutImage>
