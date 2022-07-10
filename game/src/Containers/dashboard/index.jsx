@@ -3,13 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DashCard } from "../../Components/dashCard";
-import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import { Positioner } from "../../Components/positioner";
 import { Shuffle } from "../../Components/shuffle";
-import {SocketContext, socket} from "../../sockeInstance";
-import update from 'immutability-helper';
+import { socket} from "../../sockeInstance";
+
 
 const Absolute=styled.div`
 position: absolute; 
@@ -37,12 +36,7 @@ height: 40px;
 border-radius: 10px;
 color: #fff;
 `;
-const DashParent=styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-`;
+
 export function Dashboard(){
   //openSchuffle changes the state of showSchuffle=> showing the shuffle 
   const[showShuffle, setShowShuffle]=useState(false);
@@ -51,18 +45,18 @@ export function Dashboard(){
   
   const [room, setRoom] = useState("1");
   const [isLoggedIn]=useState(true);
-  let roomNr;
+  //let roomNr;
   //onClick on the dashCard Schuffle => openSchffle is called and then setShowSchuffle invert 
   
   function openShuffle(n){
     const state1= ['immersion','analogousInspiration','PeersObservingPeers','CardSort','Interview','Collage'];
     const state2= ['Brainstorming','AttributeListing','Brainwriting','OsbornChecklist','LotusBlossomTechnique','ReverseBrainstorming'];
     const state3=['RolePlay','PaperPrototyping','CardboardPrototyping','Mockups','WireFrames']
-    if (n==1)
+    if (n===1)
     {
       setToShuffle(state1);
     }
-    else if (n==2)
+    else if (n===2)
     {
       setToShuffle(state2);
     }
@@ -74,30 +68,25 @@ export function Dashboard(){
     setShowShuffle(prev=>!prev);
   };
   console.log(toShuffle[1])
-  
-
+  // eslint-disable-next-line
   useEffect(() =>{
-      
     socket.on("roomNo", (data) =>{
       //console.log("Angekommen an Parse Room");
       setRoom(data);
   });
+  // eslint-disable-next-line
   },[socket]);
-
   const joinRoom = () => {
     if (room !== "") {
         socket.emit("join_room", room);
     }
   };
-
-
     return <PageContainer>
-
         <Navbar isLoggedIn={isLoggedIn}/>
         <DashContainer>
           <Absolute>
           <Positioner x={50} y={400} >
-          <h1 ></h1>{room}
+          {room}
         </Positioner>
         <Positioner x={100} y={630} >
         <DashCard radius={80}> Get<br/> ready</DashCard>

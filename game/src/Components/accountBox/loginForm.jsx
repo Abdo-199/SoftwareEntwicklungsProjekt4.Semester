@@ -24,7 +24,7 @@ export function LoginForm(props) {
 
   let [email,setEmail] = useState("");
   let [password,setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   const onSubmit = async (event) => {
@@ -40,7 +40,7 @@ export function LoginForm(props) {
      
      if (resT.data.token !== undefined && resT.status === 200) {
       localStorage.setItem("token", resT.data.token);
-      setIsLoggedIn(true);  
+      //setIsLoggedIn(true);  
       navigate('/intergame');    
      };
   }

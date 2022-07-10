@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { AnswerBox } from "../../Components/answerBox";
 import { Marginer } from "../../Components/marginer";
 import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
@@ -30,18 +29,20 @@ justify-content: space-evenly;
 
 `;
 
-let myFocusActive = false;
-let otherFocusActive = false;
+
 
 
 
 export function ProtoPersonas(){
-
+    // eslint-disable-next-line
+    let myFocusActive = false;
+    // eslint-disable-next-line
+    let otherFocusActive = false;
     let inputContent = "";
     const [text, setText] = useState("");
-    const [room, setRoom] = useState("0");
+    //const [room, setRoom] = useState("0");
     const [isLoggedIn]=useState(true); 
-    const elem = document.querySelector('.inputChallenge') ;
+    //const elem = document.querySelector('.inputChallenge') ;
     const elem2 = document.getElementById('inputfield');
 
     
@@ -54,9 +55,9 @@ export function ProtoPersonas(){
     } );
   */
 
-    function changeInputType(){
+    /*function changeInputType(){
         elem2.ariaReadOnly = true;
-    }
+    }*/
 
     function handleChangeAnswer(event) {
         console.log(event.target.value);
@@ -76,6 +77,7 @@ export function ProtoPersonas(){
       useEffect(() => {
         const interval = setInterval(function() {
           if (document.activeElement === elem2) {
+            // eslint-disable-next-line
             myFocusActive = true;
             console.log('element has focus');
             socket.emit("Focus is activ", text);     

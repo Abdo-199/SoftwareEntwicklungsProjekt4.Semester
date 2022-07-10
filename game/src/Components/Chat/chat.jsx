@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./chatStyles.css";
-import io from "socket.io-client";
-import {SocketContext, socket} from "../../sockeInstance";
+import {SocketContext} from "../../sockeInstance";
 function Chat(props) {
 
   const socket = useContext(SocketContext);
@@ -41,7 +40,7 @@ function Chat(props) {
     };
     
     setMessage(textString);
-    if(messageData.text !=""){
+    if(messageData.text !==""){
 
       await socket.volatile.emit("send_message", messageData);
     setMessageList((list) => [...list, messageData]);
@@ -60,12 +59,13 @@ function Chat(props) {
         //setMessage(data.message);
         setMessageList((list) => [...list, data]);
       }
+      // eslint-disable-next-line
       currentMessage = data.text
-
       //console.log(data.message);
       console.log("Recieve_message is done ! " + idUs);
     });
     socket.on("giveId", (data) =>{
+      // eslint-disable-next-line
       idUs = data;
     });
     socket.on("roomNo", (data) =>{
