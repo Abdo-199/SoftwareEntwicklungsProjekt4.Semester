@@ -11,6 +11,15 @@ const signUpTemplate = new mongoose.Schema({
         match: /.+\@.+\..+/,
         unique: true
     },
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    },
+    score: {
+        type:String,
+        require:true
+    },
     password:{
         type:String,
         required:true
