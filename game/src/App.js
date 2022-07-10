@@ -49,13 +49,6 @@ function App() {
         <Route path ="/dashboard/extremepersonas" element={<ExtremePersonas/>}/>
         <Route path ="/dashboard/prototype" element={<Prototype/>}/>
         <Route path ="/avatar" element={<Avatar/>}/>
-
-
-
-
-
-
-
         </Routes>
       </Router>
 
