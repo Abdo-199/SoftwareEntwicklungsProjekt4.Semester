@@ -41,7 +41,7 @@ export function LoginForm(props) {
      if (resT.data.token !== undefined && resT.status === 200) {
       localStorage.setItem("token", resT.data.token);
       //setIsLoggedIn(true);  
-      navigate('/intergame');    
+      navigate('/avatar');    
      };
   }
  

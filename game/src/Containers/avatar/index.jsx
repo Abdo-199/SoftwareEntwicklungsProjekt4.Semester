@@ -4,6 +4,8 @@ import { Navbar } from "../../Components/navbar";
 import { PageContainer } from "../../Components/pageContainer";
 import avatar from "../../images/avatar.png";
 import styled from "styled-components";
+import { Button } from "../../Components/button";
+import { Link } from "react-router-dom";
 
 const AvatarImage =  styled.div`
   width: 200px;
@@ -34,7 +36,11 @@ export function Avatar(){
         <Hi>Hi</Hi>
         <Hi>You are now a rookie</Hi>
         <Text>collect points to get an upgrade</Text>
-        <Marginer direction="virtical" margin={500}/>
+        <Marginer direction="virtical" margin={20}/>
+        <Link to={`/intergame` }>
+        <Button>start</Button>
+        </Link>
+        <Marginer direction="virtical" margin={300}/>
     </PageContainer>
 
 }

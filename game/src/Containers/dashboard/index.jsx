@@ -33,7 +33,8 @@ const OutRoomID=styled.output`
 background-color: #a19898;
 width: 400;
 height: 40px;
-border-radius: 10px;
+border-radius: 5px;
+padding: 5px;
 color: #fff;
 `;
 
@@ -153,8 +154,8 @@ export function Dashboard(){
         <Positioner x={1249} y={102} >
         <DashCard radius={200} >Test</DashCard>
         </Positioner>
-        <Positioner x={1100} y={100} >
-        <OutRoomID placeholder="current room id"></OutRoomID>
+        <Positioner x={1100} y={20} >
+        <OutRoomID placeholder="current room id">{room}</OutRoomID>
         </Positioner>
         </Absolute>
         </DashContainer>
