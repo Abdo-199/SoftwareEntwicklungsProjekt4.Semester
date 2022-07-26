@@ -58,7 +58,7 @@ export const Shuffle=({showShuffle,preDefined})=>{
     const [data, setData] = useState(preDefined);
     console.log(data.at(2))
     const shuffleList = () => setData(shuffle(data));
-    //data.map: using the text to display+putting it inside the link rot
+    //data.map: using the text to display+putting it inside the link rote
     return(<>
     {showShuffle? (
         
